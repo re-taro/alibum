@@ -1,0 +1,25 @@
+name: Lint codes
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  node-version: 18
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: eslint
+        run: yarn run lint --max-warnings=0

@@ -1,0 +1,37 @@
+# dependencies
+/node_modules
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# debug
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+**/public/workbox-*.js
+**/public/sw.js
+**/public/service-worker.js
+
+# sitemap
+robots.txt
+sitemap*.xml
+
+# typescript
+*.tsbuildinfo

@@ -1,0 +1,25 @@
+root: true
+env:
+  browser: true
+  es2020: true
+plugins:
+  - "@typescript-eslint"
+extends:
+  - airbnb
+  - airbnb/hooks
+  - airbnb-typescript
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/recommended
+  - plugin:@next/next/recommended
+  - prettier
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project: ./tsconfig.json
+rules:
+  import/prefer-default-export: off
+  react/react-in-jsx-scope: off
+  react/function-component-definition:
+    - 2
+    - namedComponents: arrow-function
+  react/jsx-props-no-spreading: off
