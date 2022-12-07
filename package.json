@@ -18,7 +18,7 @@
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "firebase": "9.14.0",
-    "framer-motion": "7.6.9",
+    "framer-motion": "7.6.19",
     "next": "13.0.5",
     "next-pwa": "5.6.0",
     "next-seo": "5.14.1",

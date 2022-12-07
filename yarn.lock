@@ -4023,7 +4023,7 @@ __metadata:
     eslint-plugin-react: 7.31.11
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.14.0
-    framer-motion: 7.6.9
+    framer-motion: 7.6.19
     next: 13.0.5
     next-pwa: 5.6.0
     next-seo: 5.14.1
@@ -5547,15 +5547,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:7.6.9":
-  version: 7.6.9
-  resolution: "framer-motion@npm:7.6.9"
+"framer-motion@npm:7.6.19":
+  version: 7.6.19
+  resolution: "framer-motion@npm:7.6.19"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": 10.13.1
     framesync: 6.1.2
     hey-listen: ^1.0.8
-    popmotion: 11.0.5
     style-value-types: 5.1.2
     tslib: 2.4.0
   peerDependencies:
@@ -5564,7 +5563,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: db7f86add0873096cf86a4605247560f7a2ef3e8c9ff4524ec7ec7aec74129ad52cd7283c4446aba53f5de89fc8ba70fc4b78c8325ca0622083c6090834ce518
+  checksum: bad085f2c7f55736c33723cd343b5e672c34da1c20b2aa7df6f0a5c046862a8b7e12f31884a5cb2d1d78ed755b3079af6a41864160c96b20b0fbf86d9fef8cfb
   languageName: node
   linkType: hard
 
@@ -7446,18 +7445,6 @@ __metadata:
   dependencies:
     find-up: ^4.0.0
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
-  languageName: node
-  linkType: hard
-
-"popmotion@npm:11.0.5":
-  version: 11.0.5
-  resolution: "popmotion@npm:11.0.5"
-  dependencies:
-    framesync: 6.1.2
-    hey-listen: ^1.0.8
-    style-value-types: 5.1.2
-    tslib: 2.4.0
-  checksum: f6990d7a59eff402356efd3c9874c3b32bdfd0890ef1da97c71b20ea5ca8f85c17e2daaf11d1328d2756999b0f8222b3b4ec73b4558246843f100053b5a389d7
   languageName: node
   linkType: hard
 
