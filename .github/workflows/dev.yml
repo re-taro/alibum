@@ -19,28 +19,28 @@ jobs:
           cache: yarn
       - name: fetch deps
         run: yarn install --immutable
-#      - name: start deployment
-#        uses: bobheadxi/deployments@v1
-#        id: deployment
-#        with:
-#          step: start
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          env: Preview
-#      - name: Preview deployment
-#        id: deploy
-#        uses: amondnet/vercel-action@v25
-#        with:
-#          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          vercel-org-id: ${{ secrets.ORG_ID }}
-#          vercel-project-id: ${{ secrets.PROJECT_ID }}
-#      - name: Update deployment status
-#        uses: bobheadxi/deployments@v1
-#        if: always()
-#        with:
-#          step: finish
-#          token: ${{ github.token }}
-#          status: ${{ job.status }}
-#          env: ${{ steps.deployment.outputs.env }}
-#          env_url: ${{ steps.deploy.outputs.preview-url }}
-#          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+      - name: start deployment
+        uses: bobheadxi/deployments@v1
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: Preview
+      - name: Preview deployment
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          token: ${{ github.token }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          env_url: ${{ steps.deploy.outputs.preview-url }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
