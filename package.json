@@ -1,8 +1,17 @@
 {
   "name": "alibum",
   "version": "1.0.0",
-  "private": true,
-  "author": "sozonome",
+  "description": "「ありばむ」で日頃の感謝をサプライズしよう",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/re-taro/alibum.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rintaro Itokawa",
+    "email": "me@re-taro.dev",
+    "url": "https://re-taro.dev"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
