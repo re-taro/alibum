@@ -1,5 +1,5 @@
 import { addDoc, collection, getDocs, query } from "firebase/firestore";
-import { db, StoreList } from "./firebase";
+import { db, StoreList } from "./init";
 
 export const getListRef = (uuid: string) =>
   collection(db, "Users", uuid, "List");
