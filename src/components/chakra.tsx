@@ -1,11 +1,13 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import customTheme from "../styles/theme";
 
 type ChakraProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const Chakra: FC<ChakraProps> = ({ children }) => (
-  <ChakraProvider theme={customTheme}>{children}</ChakraProvider>
+  <ChakraProvider theme={customTheme} resetCSS>
+    {children}
+  </ChakraProvider>
 );
