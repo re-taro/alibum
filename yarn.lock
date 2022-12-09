@@ -3775,7 +3775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.46.0":
+"@typescript-eslint/eslint-plugin@npm:5.46.0":
   version: 5.46.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.46.0"
   dependencies:
@@ -3798,6 +3798,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/parser@npm:5.46.0":
+  version: 5.46.0
+  resolution: "@typescript-eslint/parser@npm:5.46.0"
+  dependencies:
+    "@typescript-eslint/scope-manager": 5.46.0
+    "@typescript-eslint/types": 5.46.0
+    "@typescript-eslint/typescript-estree": 5.46.0
+    debug: ^4.3.4
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 34e2e8fb35050ac119ed2696293ecd9a1b40c3ccc915d06b8d48880c6656e8f40665b969807b76058eb9198227481653f1d1465a89a4ac6a98bc7ab9850ada1f
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/parser@npm:^5.42.0":
   version: 5.45.1
   resolution: "@typescript-eslint/parser@npm:5.45.1"
@@ -3812,23 +3829,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 48704224972e67d7ecf928118d47a1eda6732afd585bb4aab6716b7d363e5d4a2e0b0f1bbb92cbef80c7dd75ede10b610e858eb0cb86a67d1866fd17d0722895
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/parser@npm:^5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/parser@npm:5.46.0"
-  dependencies:
-    "@typescript-eslint/scope-manager": 5.46.0
-    "@typescript-eslint/types": 5.46.0
-    "@typescript-eslint/typescript-estree": 5.46.0
-    debug: ^4.3.4
-  peerDependencies:
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 34e2e8fb35050ac119ed2696293ecd9a1b40c3ccc915d06b8d48880c6656e8f40665b969807b76058eb9198227481653f1d1465a89a4ac6a98bc7ab9850ada1f
   languageName: node
   linkType: hard
 
@@ -4068,8 +4068,8 @@ __metadata:
     "@emotion/styled": 11.10.5
     "@next/env": 13.0.6
     "@types/react": 18.0.26
-    "@typescript-eslint/eslint-plugin": ^5.46.0
-    "@typescript-eslint/parser": ^5.46.0
+    "@typescript-eslint/eslint-plugin": 5.46.0
+    "@typescript-eslint/parser": 5.46.0
     eslint: 8.29.0
     eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-typescript: 17.0.0
@@ -4088,7 +4088,7 @@ __metadata:
     prettier: 2.8.1
     react: 18.2.0
     react-dom: 18.2.0
-    sharp: ^0.31.2
+    sharp: 0.31.2
     typescript: 4.9.4
   languageName: unknown
   linkType: soft
@@ -8096,7 +8096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.31.2":
+"sharp@npm:0.31.2":
   version: 0.31.2
   resolution: "sharp@npm:0.31.2"
   dependencies:
