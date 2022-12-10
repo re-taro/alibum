@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { Flex, Text } from "@chakra-ui/react";
+import { Icon } from "@iconify/react";
 
 type ViewHeaderProps = {
   date: string;
@@ -16,9 +17,15 @@ export const ViewHeader: FC<ViewHeaderProps> = ({ date, name, title }) => (
     top={0}
     position="fixed"
     w="full"
-    py={1}
+    py={2}
   >
-    <Text fontSize="md">{date}</Text>
+    <Flex>
+      <Icon icon="mdi:cake-variant-outline" width="1.25rem" height="1.25rem" />
+      <Text fontSize="md" ml={2}>
+        {date}
+      </Text>
+    </Flex>
+
     <Text
       fontSize="2xl"
       borderBottom="1px"
