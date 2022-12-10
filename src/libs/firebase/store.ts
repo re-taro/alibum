@@ -9,7 +9,7 @@ export type CreateStoreListItem = {
   name: string;
   date: string;
   title: string;
-  imageFile: File;
+  imageFile?: File;
 };
 export type StoreListItem = {
   name: string;
