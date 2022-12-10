@@ -2,7 +2,15 @@ import { Box, Text } from "@chakra-ui/react";
 import type { HTMLChakraProps } from "@chakra-ui/react";
 import type { NextPageWithLayout } from "next";
 import type { FC } from "react";
-import { ViewLayout } from "components/layout/view";
+import { createGetLayout } from "components/layout/view";
+import type { ViewLayoutProps } from "components/layout/view";
+
+const data: ViewLayoutProps = {
+  children: "",
+  title: "This is Test!!!!!!!",
+  name: "kosen Taro",
+  date: "4/25",
+};
 
 const GradientText: FC<HTMLChakraProps<"p">> = (chakraProps) => (
   <Text
@@ -24,10 +32,6 @@ const View: NextPageWithLayout = () => (
   </Box>
 );
 
-View.getLayout = (page) => (
-  <ViewLayout date="4/25" name="Kosen Taro" title="This is Test!!!">
-    {page}
-  </ViewLayout>
-);
+View.getLayout = createGetLayout(data);
 
 export default View;
