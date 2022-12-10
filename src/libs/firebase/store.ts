@@ -1,12 +1,7 @@
-import {
-  addDoc,
-  collection,
-  CollectionReference,
-  DocumentData,
-  getDocs,
-  query,
-} from "firebase/firestore";
-import { getDownloadURL, UploadMetadata } from "firebase/storage";
+import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import { getDownloadURL } from "firebase/storage";
+import type { DocumentData, CollectionReference } from "firebase/firestore";
+import type { UploadMetadata } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
 

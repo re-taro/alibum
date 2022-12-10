@@ -1,9 +1,5 @@
-import {
-  ref,
-  StorageReference,
-  uploadBytes,
-  UploadMetadata,
-} from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
+import type { StorageReference, UploadMetadata } from "firebase/storage";
 import { storage } from "./init";
 
 export const createStoregeRef = (
