@@ -1,4 +1,11 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  CollectionReference,
+  DocumentData,
+  getDocs,
+  query,
+} from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
@@ -18,7 +25,7 @@ export type StoreListItem = {
 export type StoreList = StoreListItem[];
 
 // Listへの参照を返す
-export const getListRef = (uuid: string) =>
+export const getListRef = (uuid: string): CollectionReference<DocumentData> =>
   collection(db, "Users", uuid, "List");
 
 // Listに要素を追加する
