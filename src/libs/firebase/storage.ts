@@ -19,7 +19,7 @@ export const uploadImage = (
   const fileRef = uploadBytes(
     createStoregeRef(image.name, uuid),
     image,
-    meta
+    meta,
   ).then((snapshot) => snapshot.ref);
 
   return fileRef;
