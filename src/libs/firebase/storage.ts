@@ -15,9 +15,9 @@ export const uploadImage = (
 ): Promise<StorageReference> => {
   const meta: UploadMetadata = {
     cacheControl: "public,max-age=300",
-  }
+  };
   const fileRef = uploadBytes(
-    createStoregeRef(imageFile.name,imageIndex, uuid),
+    createStoregeRef(imageFile.name, imageIndex, uuid),
     imageFile,
     meta,
   ).then((snapshot) => snapshot.ref);
