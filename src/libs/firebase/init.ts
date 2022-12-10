@@ -3,20 +3,6 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-export type CreateStoreListItem = {
-  name: string;
-  date: string;
-  title: string;
-  imageFile: File;
-};
-export type StoreListItem = {
-  name: string;
-  date: string;
-  title: string;
-  imageref?: string;
-};
-export type StoreList = StoreListItem[];
-
 const firebaseConfig = {
   apiKey: "AIzaSyDe0dcUGm9MIs0ZCKEjutDVXVslHLDd9Xk",
   authDomain: "hacku-kosen-2022.firebaseapp.com",
