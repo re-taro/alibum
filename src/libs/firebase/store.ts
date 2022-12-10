@@ -6,7 +6,7 @@ import {
   getDocs,
   query,
 } from "firebase/firestore";
-import { getDownloadURL } from "firebase/storage";
+import { getDownloadURL, UploadMetadata } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
 
@@ -36,9 +36,15 @@ export const createList = async (
   const storeData: StoreListItem = { ...data };
 
   if (data.imageFile) {
-    storeData.imageref = await uploadImage(data.imageFile, uuid).then((ref) =>
-      getDownloadURL(ref),
-    );
+    const meta: UploadMetadata = {
+      cacheControl: "public,max-age=300",
+    };
+
+    uploadImage(data.imageFile, uuid, meta)
+      .then((ref) => getDownloadURL(ref))
+      .then((imageref) => {
+        storeData.imageref = imageref;
+      });
   }
 
   addDoc(getListRef(uuid), {

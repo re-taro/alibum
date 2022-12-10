@@ -1,4 +1,9 @@
-import { ref, StorageReference, uploadBytes } from "firebase/storage";
+import {
+  ref,
+  StorageReference,
+  uploadBytes,
+  UploadMetadata,
+} from "firebase/storage";
 import { storage } from "./init";
 
 export const createStoregeRef = (
@@ -9,10 +14,13 @@ export const createStoregeRef = (
 export const uploadImage = (
   image: File,
   uuid: string,
+  meta: UploadMetadata,
 ): Promise<StorageReference> => {
-  const fileRef = uploadBytes(createStoregeRef(image.name, uuid), image).then(
-    (snapshot) => snapshot.ref,
-  );
+  const fileRef = uploadBytes(
+    createStoregeRef(image.name, uuid),
+    image,
+    meta
+  ).then((snapshot) => snapshot.ref);
 
   return fileRef;
 };
