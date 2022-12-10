@@ -51,6 +51,7 @@ export const createList = async (
 export const getList = async (uuid: string): Promise<StoreList> => {
   const ref = query(getListRef(uuid));
   const list: StoreList = [];
+  //TODO:pushの計算量的に変えるかもしれない
   getDocs(ref).then((snapshot) =>
     snapshot.forEach((doc) => list.push(doc.data() as StoreListItem)),
   );
