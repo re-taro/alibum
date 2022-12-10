@@ -1,11 +1,21 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import { getStorage, StorageReference } from "firebase/storage";
 
-export type StoreList = {
+export type CreateStoreListItem = {
   name: string;
-}[];
+  date: string;
+  title: string;
+  imageFile: File;
+};
+export type StoreListItem = {
+  name: string;
+  date: string;
+  title: string;
+  imageref?: StorageReference;
+};
+export type StoreList = StoreListItem[];
 
 const firebaseConfig = {
   apiKey: "AIzaSyDe0dcUGm9MIs0ZCKEjutDVXVslHLDd9Xk",

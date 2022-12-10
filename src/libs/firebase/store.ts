@@ -1,22 +1,32 @@
 import { addDoc, collection, getDocs, query } from "firebase/firestore";
-import { db, StoreList } from "./init";
+import { CreateStoreListItem, db, StoreList, StoreListItem } from "./init";
+import { uploadImage } from "./storage";
 
+// Listへの参照を返す
 export const getListRef = (uuid: string) =>
   collection(db, "Users", uuid, "List");
 
-export const createList = async (uuid: string, name: string) => {
+// Listに要素を追加する
+export const createList = async (uuid: string, data: CreateStoreListItem) => {
+  const storeData: StoreListItem = { ...data };
+
+  if (data.imageFile) {
+    storeData.imageref = await uploadImage(data.imageFile, uuid);
+  }
+
   await addDoc(getListRef(uuid), {
-    name,
+    data,
   });
 };
 
+// List全取得
 export const getList = async (uuid: string) => {
   const ref = query(getListRef(uuid));
 
   const listSnapShot = await getDocs(ref);
 
   const list: StoreList = [];
-  listSnapShot.forEach((doc) => list.push({ name: doc.data().name }));
+  listSnapShot.forEach((doc) => list.push(doc.data() as StoreListItem));
 
   return list;
 };
