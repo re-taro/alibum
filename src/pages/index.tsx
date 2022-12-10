@@ -1,7 +1,8 @@
 import { Box, Text } from "@chakra-ui/react";
 import type { HTMLChakraProps } from "@chakra-ui/react";
-import type { NextPage } from "next";
+import type { NextPageWithLayout } from "next";
 import type { FC } from "react";
+import { MenuLayout } from "../components/layout/menu";
 
 const GradientText: FC<HTMLChakraProps<"p">> = (chakraProps) => (
   <Text
@@ -12,7 +13,7 @@ const GradientText: FC<HTMLChakraProps<"p">> = (chakraProps) => (
   />
 );
 
-const Index: NextPage = () => (
+const Index: NextPageWithLayout = () => (
   <Box
     height="100vh"
     display="flex"
@@ -22,5 +23,7 @@ const Index: NextPage = () => (
     <GradientText as="h2">Hello Chakra UI</GradientText>
   </Box>
 );
+
+Index.getLayout = (page) => <MenuLayout>{page}</MenuLayout>;
 
 export default Index;
