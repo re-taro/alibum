@@ -3370,6 +3370,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/font@npm:13.0.6":
+  version: 13.0.6
+  resolution: "@next/font@npm:13.0.6"
+  checksum: 8c6ee82763d8b4de30ba45f902f66c5e74159e26dc0262349961bc48d2360ba11df1a080cfc99f07001b1f66e7d01342dbde93bda2f16f05e19044fcf7c2db45
+  languageName: node
+  linkType: hard
+
 "@next/swc-android-arm-eabi@npm:13.0.6":
   version: 13.0.6
   resolution: "@next/swc-android-arm-eabi@npm:13.0.6"
@@ -4291,6 +4298,7 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@next/env": 13.0.6
+    "@next/font": 13.0.6
     "@types/react": 18.0.26
     "@typescript-eslint/eslint-plugin": 5.46.0
     "@typescript-eslint/parser": 5.46.0
