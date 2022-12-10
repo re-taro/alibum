@@ -1403,7 +1403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/cli@npm:^2.2.0":
+"@chakra-ui/cli@npm:2.2.0":
   version: 2.2.0
   resolution: "@chakra-ui/cli@npm:2.2.0"
   dependencies:
@@ -4286,7 +4286,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "alibum@workspace:."
   dependencies:
-    "@chakra-ui/cli": ^2.2.0
+    "@chakra-ui/cli": 2.2.0
     "@chakra-ui/react": 2.4.3
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
