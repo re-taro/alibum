@@ -3,13 +3,20 @@ import { Box, Flex } from "@chakra-ui/react";
 import { ViewHeader } from "./header/view";
 
 export type ViewLayoutProps = Required<{
-  children: ReactNode;
   date: string;
   name: string;
   title: string;
 }>;
 
-const ViewLayout: FC<ViewLayoutProps> = ({ children, date, name, title }) => (
+interface ViewLayoutInterface extends ViewLayoutProps {
+  children: ReactNode;
+}
+const ViewLayout: FC<ViewLayoutInterface> = ({
+  children,
+  date,
+  name,
+  title,
+}) => (
   <Box minH="100vh" bgColor="background.500">
     <ViewHeader date={date} name={name} title={title} />
     <Flex

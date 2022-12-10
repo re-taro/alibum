@@ -6,7 +6,6 @@ import { createGetLayout } from "components/layout/view";
 import type { ViewLayoutProps } from "components/layout/view";
 
 const data: ViewLayoutProps = {
-  children: "",
   title: "This is Test!!!!!!!",
   name: "kosen Taro",
   date: "4/25",
