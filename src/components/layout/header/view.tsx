@@ -14,6 +14,7 @@ export const ViewHeader: FC<ViewHeaderProps> = ({ date, name, title }) => (
     bgColor="white"
     flexDir="column"
     top={0}
+    position="fixed"
     w="full"
     py={1}
   >
