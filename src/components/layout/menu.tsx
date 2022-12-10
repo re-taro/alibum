@@ -9,7 +9,13 @@ type MenuLayoutProps = Required<{
 export const MenuLayout: FC<MenuLayoutProps> = ({ children }) => (
   <Box minH="100vh" bgColor="background.500">
     <MenuHeader />
-    <Flex as="main" flexDir="column" alignItems="center" pt="28" position="static">
+    <Flex
+      as="main"
+      flexDir="column"
+      alignItems="center"
+      pt="28"
+      position="static"
+    >
       {children}
     </Flex>
   </Box>

@@ -11,7 +11,7 @@ export const MenuHeader: FC = () => (
     position="fixed"
     top={0}
     w="full"
-    py="1.5"
+    py="4"
   >
     <Heading as="h1" fontSize="2rem" color="primary.500">
       Alibum
