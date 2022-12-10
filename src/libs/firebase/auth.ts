@@ -1,4 +1,5 @@
-import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import type { User } from "firebase/auth";
 import { auth } from "./init";
 
 export const login = (): Promise<User> => {
