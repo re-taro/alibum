@@ -1,15 +1,19 @@
 import { addDoc, collection, getDocs, query } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import type { DocumentData, CollectionReference } from "firebase/firestore";
-import type { UploadMetadata } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
+
+export type ImageInfo = {
+  imageFile: File;
+  imageIndex: number;
+};
 
 export type CreateStoreListItem = {
   name: string;
   date: string;
   title: string;
-  imageFile?: File;
+  imageInfo?: ImageInfo;
 };
 export type StoreListItem = {
   name: string;
@@ -28,14 +32,11 @@ export const createList = async (
   uuid: string,
   data: CreateStoreListItem,
 ): Promise<void> => {
-  const storeData: StoreListItem = { ...data };
+  const { name, date, title, imageInfo } = data;
+  const storeData: StoreListItem = { name, date, title };
 
-  if (data.imageFile) {
-    const meta: UploadMetadata = {
-      cacheControl: "public,max-age=300",
-    };
-
-    uploadImage(data.imageFile, uuid, meta)
+  if (imageInfo?.imageFile && imageInfo.imageIndex) {
+    uploadImage(imageInfo.imageFile, imageInfo.imageIndex, uuid)
       .then((ref) => getDownloadURL(ref))
       .then((imageref) => {
         storeData.imageref = imageref;
