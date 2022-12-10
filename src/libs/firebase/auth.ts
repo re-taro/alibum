@@ -1,12 +1,9 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import type { User } from "firebase/auth";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "./init";
 
-export const login = (): Promise<User> => {
+export const login = (): void => {
   const provider = new GoogleAuthProvider();
-
-  const user = signInWithPopup(auth, provider).then((result) => result.user);
-  return user;
+  signInWithRedirect(auth, provider);
 };
 
 export const logout = (): Promise<void> => auth.signOut();
