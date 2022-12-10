@@ -13,6 +13,7 @@
     "url": "https://re-taro.dev"
   },
   "scripts": {
+    "postinstall": "npm run gen:theme",
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
@@ -20,7 +21,8 @@
     "lint": "next lint",
     "lint:fix": "eslint src --fix && npm run format",
     "fmt": "prettier --write src",
-    "fmt:check": "prettier --check src"
+    "fmt:check": "prettier --check src",
+    "gen:theme": "chakra-cli tokens ./src/styles/theme/index.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "2.4.3",
@@ -36,6 +38,7 @@
     "sharp": "0.31.2"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "2.2.0",
     "@next/env": "13.0.6",
     "@types/react": "18.0.26",
     "@typescript-eslint/eslint-plugin": "5.46.0",
