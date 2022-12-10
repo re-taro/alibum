@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getStorage, StorageReference } from "firebase/storage";
+import { getStorage  } from "firebase/storage";
 
 export type CreateStoreListItem = {
   name: string;
@@ -13,7 +13,7 @@ export type StoreListItem = {
   name: string;
   date: string;
   title: string;
-  imageref?: StorageReference;
+  imageref?: string;
 };
 export type StoreList = StoreListItem[];
 

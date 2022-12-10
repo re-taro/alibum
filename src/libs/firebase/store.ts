@@ -1,4 +1,5 @@
 import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import { getDownloadURL } from "firebase/storage";
 import { CreateStoreListItem, db, StoreList, StoreListItem } from "./init";
 import { uploadImage } from "./storage";
 
@@ -11,7 +12,9 @@ export const createList = async (uuid: string, data: CreateStoreListItem) => {
   const storeData: StoreListItem = { ...data };
 
   if (data.imageFile) {
-    storeData.imageref = await uploadImage(data.imageFile, uuid);
+    storeData.imageref = await uploadImage(data.imageFile, uuid).then((ref) =>
+      getDownloadURL(ref),
+    );
   }
 
   await addDoc(getListRef(uuid), {
