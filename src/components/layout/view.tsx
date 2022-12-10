@@ -7,6 +7,7 @@ export type ViewLayoutProps = Required<{
   name: string;
   title: string;
 }>;
+
 interface ViewLayoutInterface extends ViewLayoutProps {
   children: ReactNode;
 }

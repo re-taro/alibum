@@ -25,7 +25,6 @@ export const ViewHeader: FC<ViewHeaderProps> = ({ date, name, title }) => (
         {date}
       </Text>
     </Flex>
-
     <Text
       fontSize="2xl"
       borderBottom="1px"
