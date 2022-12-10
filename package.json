@@ -13,7 +13,6 @@
     "url": "https://re-taro.dev"
   },
   "scripts": {
-    "postinstall": "npm run gen:theme",
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
