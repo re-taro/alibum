@@ -27,7 +27,7 @@
     "@chakra-ui/react": "2.4.3",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@iconify/react": "^4.0.1",
+    "@iconify/react": "4.0.1",
     "@next/font": "13.0.6",
     "firebase": "9.15.0",
     "framer-motion": "7.6.19",
