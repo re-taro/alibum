@@ -12,7 +12,7 @@ export const useStoreList = (
     const list = await getList(uuid);
     setListState(list);
     setLoadingState(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeList]);
 
   useEffect(() => {
