@@ -18,6 +18,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => (
       flexDir="column"
       alignItems="center"
       pt="28"
+      px={{ base: "10", lg: "25%" }}
       position="static"
     >
       {children}
