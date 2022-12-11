@@ -1,5 +1,5 @@
 import {
-  Modal,
+  Modal as ChakraModal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -18,13 +18,13 @@ export type InputModalProps = {
 } & Pick<ModalProps, "isOpen" | "onClose">;
 
 // eslint-disable-next-line react/display-name
-export const InputModal: FC<InputModalProps> = ({
+export const Modal: FC<InputModalProps> = ({
   children,
   footer,
   isOpen,
   onClose,
 }) => (
-  <Modal isOpen={isOpen} onClose={onClose} isCentered>
+  <ChakraModal isOpen={isOpen} onClose={onClose} isCentered>
     <ModalOverlay />
     <ModalContent mx="4" w="full">
       <ModalHeader p="0">
@@ -43,5 +43,5 @@ export const InputModal: FC<InputModalProps> = ({
         </Box>
       </ModalFooter>
     </ModalContent>
-  </Modal>
+  </ChakraModal>
 );
