@@ -14,16 +14,18 @@ export default function () {
       <div style={{
           width: '100%',
           height: '100%',
+          padding: '20px 80px',
           display: 'flex',
           textAlign: 'center',
           alignItems: 'center',
           alignContent: 'center',
           justifyContent: 'center',
           wordBreak: 'break-all',
+          fontFamily: 'Inter, "Material Icons"',
           fontSize: 60,
           backgroundImage: `url(${icon})`,
         }}>
-        Hello world!
+        Hello World!
       </div>
     ),
     {
