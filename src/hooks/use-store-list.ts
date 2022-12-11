@@ -8,12 +8,13 @@ export const useStoreMenuList = (
   const [storeList, setListState] = useState<StoreMenuList>([]);
   const [isLoading, setLoadingState] = useState<boolean>(true);
 
+  const dummylist: unknown = [];
   const getListFn = useCallback(async () => {
     const list = await getMenuList(uuid);
     setListState(list);
     setLoadingState(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [storeList]);
+  }, [dummylist]);
 
   useEffect(() => {
     getListFn();
