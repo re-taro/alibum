@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode, ReactElement } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { EditHeader } from "./header/edit";
 
@@ -27,7 +27,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => (
 
 export const createGetLayout = (
   layoutProps: EditLayoutProps,
-): ((page: React.ReactElement) => React.ReactElement) =>
-  function getLayout(page: React.ReactElement) {
+): ((page: ReactElement) => ReactElement) =>
+  function getLayout(page: ReactElement) {
     return <EditLayout {...layoutProps}>{page}</EditLayout>;
   };
