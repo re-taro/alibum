@@ -1,14 +1,14 @@
 import { ImageResponse } from '@vercel/og';
-
 export const config = {
   runtime: 'experimental-edge',
 };
-const icon = new URL(
+
+const backGroundPng = new URL(
     "../../assets/OGP_.png",
     import.meta.url,
 ).toString();
 
-export default function () {
+export default function() {
   return new ImageResponse(
     (
       <div style={{
@@ -21,11 +21,17 @@ export default function () {
           alignContent: 'center',
           justifyContent: 'center',
           wordBreak: 'break-all',
-          fontFamily: 'Inter, "Material Icons"',
-          fontSize: 60,
-          backgroundImage: `url(${icon})`,
+          backgroundImage: `url(${backGroundPng})`,
         }}>
-        Hello World!
+        <option style={{
+            fontFamily: 'sans-serif, "Material Icons"',
+        }}>
+        </option> 
+        <p style={{
+            fontSize: '60px',
+        }}>
+          
+        </p>
       </div>
     ),
     {
@@ -33,4 +39,4 @@ export default function () {
       height: 600,
     },
   );
-}
+};
