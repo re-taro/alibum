@@ -4312,6 +4312,7 @@ __metadata:
   resolution: "alibum@workspace:."
   dependencies:
     "@chakra-ui/cli": 2.2.0
+    "@chakra-ui/icon": 3.0.13
     "@chakra-ui/react": 2.4.3
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5

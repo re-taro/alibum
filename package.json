@@ -24,6 +24,7 @@
     "gen:theme": "chakra-cli tokens ./src/styles/theme/index.ts"
   },
   "dependencies": {
+    "@chakra-ui/icon": "3.0.13",
     "@chakra-ui/react": "2.4.3",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",

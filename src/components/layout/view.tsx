@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode, ReactElement } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { ViewHeader } from "./header/view";
 
@@ -25,6 +25,7 @@ const ViewLayout: FC<ViewLayoutInterface> = ({
       flexDir="column"
       alignItems="center"
       pt="28"
+      px={{ base: "3", lg: "25%" }}
       position="static"
     >
       {children}
@@ -34,7 +35,7 @@ const ViewLayout: FC<ViewLayoutInterface> = ({
 
 export const createGetLayout = (
   layoutProps: ViewLayoutProps,
-): ((page: React.ReactElement) => React.ReactElement) =>
-  function getLayout(page: React.ReactElement) {
+): ((page: ReactElement) => ReactNode) =>
+  function getLayout(page: ReactElement) {
     return <ViewLayout {...layoutProps}>{page}</ViewLayout>;
   };
