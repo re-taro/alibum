@@ -1,4 +1,11 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import type { DocumentData, CollectionReference } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
@@ -14,10 +21,11 @@ export type CreateStoreMenuListItem = {
   date: string;
   title: string;
 };
+
 export type StoreMenuListItem = {
   name: string;
   date: string;
-  title: string;
+  id: string;
 };
 
 export type StoreMenuList = StoreMenuListItem[];
@@ -34,7 +42,6 @@ export type CreateStoreCardListItem = {
 
 export type StoreCardList = StoreCardListItem[];
 
-// Listへの参照を返す
 export const getMenuListRef = (
   uuid: string,
 ): CollectionReference<DocumentData> => collection(db, "Users", uuid, "List");
@@ -43,21 +50,23 @@ export const getCardListRef = (
   uuid: string,
   listId: string,
 ): CollectionReference<DocumentData> =>
-  collection(db, "Users", uuid, "List", listId, "Cards");
+  collection(db, "Users", uuid, "List", listId, "Card");
 
-// Listに要素を追加する
 export const createMenuListItem = async (
   uuid: string,
   data: CreateStoreMenuListItem,
 ): Promise<StoreMenuListItem> => {
-  const { name, date, title } = data;
-  const storeData: StoreMenuListItem = { name, date, title };
+  const res = await addDoc(getMenuListRef(uuid), data);
 
-  addDoc(getMenuListRef(uuid), {
-    storeData,
-  });
+  await updateDoc(doc(db, "Users", uuid, "List", res.id), { id: res.id });
 
-  return storeData;
+  const createdData: StoreMenuListItem = {
+    name: data.name,
+    date: data.date,
+    id: res.id,
+  };
+
+  return createdData;
 };
 
 // List全取得
@@ -66,7 +75,13 @@ export const getMenuList = async (uuid: string): Promise<StoreMenuList> => {
   const list: StoreMenuList = [];
   // TODO:pushの計算量的に変えるかもしれない
   getDocs(ref).then((snapshot) =>
-    snapshot.forEach((doc) => list.push(doc.data() as StoreMenuListItem)),
+    snapshot.forEach((docs) =>
+      list.push({
+        name: docs.data().name,
+        date: docs.data().date,
+        id: docs.data().id,
+      }),
+    ),
   );
 
   return list;
@@ -93,12 +108,15 @@ export const createCardListItem = async (
   return storeData;
 };
 
-export const getCardList = async (uuid: string): Promise<StoreCardList> => {
-  const ref = query(getMenuListRef(uuid));
+export const getCardList = async (
+  uuid: string,
+  listId: string,
+): Promise<StoreCardList> => {
+  const ref = query(getCardListRef(uuid, listId));
   const list: StoreCardList = [];
   // TODO:pushの計算量的に変えるかもしれない
-  getDocs(ref).then((snapshot) =>
-    snapshot.forEach((doc) => list.push(doc.data() as StoreCardListItem)),
+  await getDocs(ref).then((snapshot) =>
+    snapshot.forEach((docs) => list.push(docs.data() as StoreCardListItem)),
   );
 
   return list;
