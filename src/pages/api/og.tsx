@@ -19,6 +19,7 @@ export default function () {
           alignItems: 'center',
           alignContent: 'center',
           justifyContent: 'center',
+          wordBreak: 'break-all',
           fontSize: 60,
           backgroundImage: `url(${icon})`,
         }}>
