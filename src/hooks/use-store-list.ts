@@ -6,7 +6,7 @@ export const useStoreList = (
   uuid: string,
 ): [StoreList, Dispatch<SetStateAction<StoreList>>, boolean] => {
   const [storeList, setListState] = useState<StoreList>([]);
-  const [isLoading, setLodingState] = useState<boolean>(true);
+  const [isLoading, setLoadingState] = useState<boolean>(true);
 
   const getListFn = useCallback(async () => {
     const list = await getList(uuid);
