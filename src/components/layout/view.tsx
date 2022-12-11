@@ -34,7 +34,7 @@ const ViewLayout: FC<ViewLayoutInterface> = ({
 
 export const createGetLayout = (
   layoutProps: ViewLayoutProps,
-): ((page: ReactElement) => ReactElement) =>
+): ((page: ReactElement) => ReactNode) =>
   function getLayout(page: ReactElement) {
     return <ViewLayout {...layoutProps}>{page}</ViewLayout>;
   };

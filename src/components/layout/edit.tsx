@@ -27,7 +27,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => (
 
 export const createGetLayout = (
   layoutProps: EditLayoutProps,
-): ((page: ReactElement) => ReactElement) =>
+): ((page: ReactElement) => ReactNode) =>
   function getLayout(page: ReactElement) {
     return <EditLayout {...layoutProps}>{page}</EditLayout>;
   };
