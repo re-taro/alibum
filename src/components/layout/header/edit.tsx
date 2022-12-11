@@ -1,6 +1,6 @@
-import { IconButton, Flex, Text } from "@chakra-ui/react";
-import { Icon } from "@iconify/react";
+import { Flex, Text } from "@chakra-ui/react";
 import type { FC } from "react";
+import { IconButton } from "../../shared/button/icon-button";
 
 type EditHeaderProps = {
   name: string;
@@ -18,14 +18,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name }) => (
     w="full"
     py="4"
   >
-    <IconButton
-      colorScheme="secondary"
-      color="white"
-      aria-label="arrow"
-      isRound
-      size="md"
-      icon={<Icon icon="material-symbols:arrow-back" />}
-    />
+    <IconButton label="arrow" size="md" icon="material-symbols:arrow-back" />
     <Text
       fontSize="2xl"
       maxWidth="60vw"
@@ -36,13 +29,6 @@ export const EditHeader: FC<EditHeaderProps> = ({ name }) => (
     >
       {name}
     </Text>
-    <IconButton
-      colorScheme="secondary"
-      color="white"
-      aria-label="arrow"
-      size="md"
-      isRound
-      icon={<Icon icon="mdi:link-variant" />}
-    />
+    <IconButton label="link" size="md" icon="mdi:link-variant" />
   </Flex>
 );
