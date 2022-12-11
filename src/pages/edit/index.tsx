@@ -3,7 +3,7 @@ import type { HTMLChakraProps } from "@chakra-ui/react";
 import type { NextPageWithLayout } from "next";
 import type { FC } from "react";
 import { createGetLayout } from "../../components/layout/edit";
-import type { EditLayoutProps } from "components/layout/edit";
+import type { EditLayoutProps } from "../../components/layout/edit";
 
 const data: EditLayoutProps = {
   name: "Kosen Taroaaaaaaaaaaaaaaaaaaaaaaaaaaa",
