@@ -1,29 +1,34 @@
 import type { FC } from "react";
 import { Flex, Button } from "@chakra-ui/react";
 import { Logo } from "../../alibum";
+import { logout } from "../../../libs/firebase/auth";
 
-// TODO: Add a logout button logic
-export const MenuHeader: FC = () => (
-  <Flex
-    as="header"
-    justifyContent="space-around"
-    alignItems="center"
-    bgColor="white"
-    position="fixed"
-    top={0}
-    w="full"
-    py="4"
-  >
-    <Logo />
-    <Button
-      colorScheme="extra"
-      borderRadius="2xl"
-      px="4"
-      color="white"
-      fontSize="1.25rem"
-      onClick={() => {}}
+export const MenuHeader: FC = () => {
+  const onClick = () => {
+    logout();
+  };
+  return (
+    <Flex
+      as="header"
+      justifyContent="space-around"
+      alignItems="center"
+      bgColor="white"
+      position="fixed"
+      top={0}
+      w="full"
+      py="4"
     >
-      logout
-    </Button>
-  </Flex>
-);
+      <Logo />
+      <Button
+        colorScheme="extra"
+        borderRadius="2xl"
+        px="4"
+        color="white"
+        fontSize="1.25rem"
+        onClick={onClick}
+      >
+        logout
+      </Button>
+    </Flex>
+  );
+};
