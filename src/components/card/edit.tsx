@@ -2,12 +2,12 @@ import type { FC } from "react";
 import { Card, CardBody, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
-type CardItemProps = {
+type EditCardProps = {
   text: string;
   imageref: string;
 };
 
-export const CardItem: FC<CardItemProps> = ({ text, imageref }) =>
+export const EditCard: FC<EditCardProps> = ({ text, imageref }) =>
   imageref ? (
     <Card
       shadow="md"
@@ -18,7 +18,7 @@ export const CardItem: FC<CardItemProps> = ({ text, imageref }) =>
     >
       <CardBody position="relative">
         <Flex flexDir="column" alignItems="center" textAlign="center">
-          <Text fontSize={["1rem", "1rem", "1.25rem", "1.5rem"]}>{text}</Text>
+          <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
           <Image
             src={imageref}
             alt="Present for you"
