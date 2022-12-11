@@ -1,5 +1,5 @@
 import { getList, StoreList } from "libs/firebase/store";
-import { useState, useMemo } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
 export const useStoreList = (
@@ -7,12 +7,16 @@ export const useStoreList = (
 ): [StoreList, Dispatch<SetStateAction<StoreList>>, boolean] => {
   const [storeList, setListState] = useState<StoreList>([]);
   const [isLoading, setLodingState] = useState<boolean>(true);
-  useMemo(() => {
-    getList(uuid).then((res) => {
-      setListState(res);
-      setLodingState(false);
-    });
+
+  const getListFn = useCallback(async () => {
+    const list = await getList(uuid);
+    setListState(list);
+    setLodingState(false);
   }, [uuid]);
+
+  useEffect(() => {
+    getListFn();
+  }, [getListFn]);
 
   return [storeList, setListState, isLoading];
 };
