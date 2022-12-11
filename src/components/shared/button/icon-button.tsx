@@ -14,7 +14,7 @@ export type IconButtonProps = Omit<
 
 // eslint-disable-next-line react/display-name
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ label, size, icon }, ref) => (
+  ({ label, size, icon, ...rest }, ref) => (
     <ChakraIconButton
       colorScheme="secondary"
       color="white"
@@ -23,6 +23,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       size={size}
       icon={<Icon icon={icon} />}
       ref={ref}
+      {...rest}
     />
   ),
 );
