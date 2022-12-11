@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { Flex, Button, Heading } from "@chakra-ui/react";
+import { Flex, Button } from "@chakra-ui/react";
+import { Logo } from "../../alibum";
 
 // TODO: Add a logout button logic
 export const MenuHeader: FC = () => (
@@ -13,9 +14,7 @@ export const MenuHeader: FC = () => (
     w="full"
     py="4"
   >
-    <Heading as="h1" fontSize="2rem" color="primary.500">
-      Alibum
-    </Heading>
+    <Logo />
     <Button
       colorScheme="extra"
       borderRadius="2xl"
