@@ -19,7 +19,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name }) => (
     py="4"
   >
     <IconButton
-      backgroundColor="secondary.500"
+      colorScheme="secondary"
       color="white"
       aria-label="arrow"
       isRound
@@ -37,7 +37,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name }) => (
       {name}
     </Text>
     <IconButton
-      backgroundColor="secondary.500"
+      colorScheme="secondary"
       color="white"
       aria-label="arrow"
       size="md"
