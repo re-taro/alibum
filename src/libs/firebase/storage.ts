@@ -21,6 +21,5 @@ export const uploadImage = (
     imageFile,
     meta,
   ).then((snapshot) => snapshot.ref);
-
   return fileRef;
 };
