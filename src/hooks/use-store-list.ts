@@ -12,7 +12,8 @@ export const useStoreList = (
     const list = await getList(uuid);
     setListState(list);
     setLoadingState(false);
-  }, [uuid]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storeList]);
 
   useEffect(() => {
     getListFn();
