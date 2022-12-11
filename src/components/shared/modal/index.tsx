@@ -29,7 +29,7 @@ export const Modal: FC<InputModalProps> = ({
     <ModalContent mx="4" w="full">
       <ModalHeader p="0">
         <IconButton
-          label="test"
+          label="Close"
           icon="material-symbols:arrow-back-rounded"
           onClick={onClose}
           ml="4"
