@@ -11,7 +11,7 @@ export const useStoreList = (
   const getListFn = useCallback(async () => {
     const list = await getList(uuid);
     setListState(list);
-    setLodingState(false);
+    setLoadingState(false);
   }, [uuid]);
 
   useEffect(() => {
