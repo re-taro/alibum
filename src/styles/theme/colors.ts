@@ -10,9 +10,13 @@ const extendedColors: DeepPartial<
   secondary: {
     50: "#FFF3D5",
     500: "#FFC672",
+    600: "#f9b95a",
+    700: "#F3AB3F",
   },
   extra: {
     500: "#8AC8CF",
+    600: "#5abdc8",
+    700: "#29B1C0",
   },
   background: {
     500: "#FEEEDC",
