@@ -3,6 +3,7 @@ import type { AppPropsWithLayout } from "next/app";
 import Head from "next/head";
 import { Chakra } from "../components/chakra";
 import defaultSEOConfig from "../../next-seo.config";
+import { AuthProvider } from "../contexts/auth";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
@@ -16,7 +17,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         />
       </Head>
       <DefaultSeo {...defaultSEOConfig} />
-      {getLayout(<Component {...pageProps} />)}
+      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
     </Chakra>
   );
 };
