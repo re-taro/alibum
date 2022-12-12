@@ -17,17 +17,14 @@ export const EditCard: FC<CardProps> = ({ text, imageref }) => (
         <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
         {imageref ? (
           <Box w="full">
-            <AspectRatio
-              ratio={16 / 9}
-              visibility={{ visibility: imageref ? "visible" : "hidden" }}
-            >
+            <AspectRatio ratio={16 / 9}>
               <Image
                 src={imageref}
                 alt="Present for you"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </AspectRatio>{" "}
+            </AspectRatio>
           </Box>
         ) : null}
       </Flex>
