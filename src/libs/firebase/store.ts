@@ -1,6 +1,13 @@
-import { addDoc, collection, getDocs, query } from "firebase/firestore";
-import { getDownloadURL } from "firebase/storage";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import type { DocumentData, CollectionReference } from "firebase/firestore";
+import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
 
@@ -9,52 +16,107 @@ export type ImageInfo = {
   imageIndex: number;
 };
 
-export type CreateStoreListItem = {
+export type CreateStoreMenuListItem = {
   name: string;
   date: string;
   title: string;
-  imageInfo?: ImageInfo;
 };
-export type StoreListItem = {
+
+export type StoreMenuListItem = {
   name: string;
   date: string;
-  title: string;
-  imageref?: string;
+  id: string;
 };
-export type StoreList = StoreListItem[];
 
-// Listへの参照を返す
-export const getListRef = (uuid: string): CollectionReference<DocumentData> =>
-  collection(db, "Users", uuid, "List");
+export type StoreMenuList = StoreMenuListItem[];
 
-// Listに要素を追加する
-export const createList = async (
+export type StoreCardListItem = {
+  text: string;
+  imageRef?: string;
+};
+
+export type CreateStoreCardListItem = {
+  text: string;
+  imageData?: ImageInfo;
+};
+
+export type StoreCardList = StoreCardListItem[];
+
+export const getMenuListRef = (
   uuid: string,
-  data: CreateStoreListItem,
-): Promise<void> => {
-  const { name, date, title, imageInfo } = data;
-  const storeData: StoreListItem = { name, date, title };
+): CollectionReference<DocumentData> => collection(db, "Users", uuid, "List");
 
-  if (imageInfo?.imageFile && imageInfo.imageIndex) {
-    uploadImage(imageInfo.imageFile, imageInfo.imageIndex, uuid)
-      .then((ref) => getDownloadURL(ref))
-      .then((imageref) => {
-        storeData.imageref = imageref;
-      });
-  }
+export const getCardListRef = (
+  uuid: string,
+  listId: string,
+): CollectionReference<DocumentData> =>
+  collection(db, "Users", uuid, "List", listId, "Card");
 
-  addDoc(getListRef(uuid), {
-    data,
-  });
+export const createMenuListItem = async (
+  uuid: string,
+  data: CreateStoreMenuListItem,
+): Promise<StoreMenuListItem> => {
+  const res = await addDoc(getMenuListRef(uuid), data);
+
+  await updateDoc(doc(db, "Users", uuid, "List", res.id), { id: res.id });
+
+  const createdData: StoreMenuListItem = {
+    name: data.name,
+    date: data.date,
+    id: res.id,
+  };
+
+  return createdData;
 };
 
 // List全取得
-export const getList = async (uuid: string): Promise<StoreList> => {
-  const ref = query(getListRef(uuid));
-  const list: StoreList = [];
+export const getMenuList = async (uuid: string): Promise<StoreMenuList> => {
+  const ref = query(getMenuListRef(uuid));
+  const list: StoreMenuList = [];
   // TODO:pushの計算量的に変えるかもしれない
   getDocs(ref).then((snapshot) =>
-    snapshot.forEach((doc) => list.push(doc.data() as StoreListItem)),
+    snapshot.forEach((docs) =>
+      list.push({
+        name: docs.data().name,
+        date: docs.data().date,
+        id: docs.data().id,
+      }),
+    ),
+  );
+
+  return list;
+};
+
+export const createCardListItem = async (
+  uuid: string,
+  listId: string,
+  data: CreateStoreCardListItem,
+): Promise<StoreCardListItem> => {
+  const { text, imageData } = data;
+  const storeData: StoreCardListItem = { text };
+
+  if (imageData?.imageFile && imageData.imageIndex) {
+    uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
+      .then((ref) => getDownloadURL(ref))
+      .then((imageref) => {
+        storeData.imageRef = imageref;
+      });
+  }
+
+  addDoc(getCardListRef(uuid, listId), storeData);
+
+  return storeData;
+};
+
+export const getCardList = async (
+  uuid: string,
+  listId: string,
+): Promise<StoreCardList> => {
+  const ref = query(getCardListRef(uuid, listId));
+  const list: StoreCardList = [];
+  // TODO:pushの計算量的に変えるかもしれない
+  await getDocs(ref).then((snapshot) =>
+    snapshot.forEach((docs) => list.push(docs.data() as StoreCardListItem)),
   );
 
   return list;
