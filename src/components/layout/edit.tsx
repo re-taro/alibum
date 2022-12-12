@@ -4,15 +4,16 @@ import { EditHeader } from "./header/edit";
 
 export type EditLayoutProps = Required<{
   name: string;
+  link: string;
 }>;
 
 interface EditLayoutInterface extends EditLayoutProps {
   children: ReactNode;
 }
 
-const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => (
+const EditLayout: FC<EditLayoutInterface> = ({ children, name, link }) => (
   <Box minH="100vh" bgColor="background.500">
-    <EditHeader name={name} />
+    <EditHeader name={name} link={link} />
     <Flex
       as="main"
       flexDir="column"
@@ -28,7 +29,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => (
 
 export const createGetLayout = (
   layoutProps: EditLayoutProps,
-): ((page: ReactElement) => ReactNode) =>
+): ((page: ReactElement) => ReactElement) =>
   function getLayout(page: ReactElement) {
     return <EditLayout {...layoutProps}>{page}</EditLayout>;
   };
