@@ -3,7 +3,7 @@ import { AspectRatio, Box, Card, CardBody, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import type { CardProps } from "./types";
 
-export const EditCard: FC<CardProps> = ({ text, imageref }) => (
+export const EditCard: FC<CardProps> = ({ text, imageRef }) => (
   <Card
     shadow="md"
     rounded="md"
@@ -15,11 +15,11 @@ export const EditCard: FC<CardProps> = ({ text, imageref }) => (
     <CardBody position="relative">
       <Flex flexDir="column" alignItems="center" textAlign="center" gap={4}>
         <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
-        {imageref ? (
+        {imageRef ? (
           <Box w="full">
             <AspectRatio ratio={16 / 9}>
               <Image
-                src={imageref}
+                src={imageRef}
                 alt="Present for you"
                 fill
                 style={{ objectFit: "contain" }}
