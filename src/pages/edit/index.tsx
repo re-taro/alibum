@@ -7,6 +7,7 @@ import type { EditLayoutProps } from "../../components/layout/edit";
 
 const data: EditLayoutProps = {
   name: "Kosen Taroaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  link: "https://hogehoge.com",
 };
 
 const GradientText: FC<HTMLChakraProps<"p">> = (chakraProps) => (
