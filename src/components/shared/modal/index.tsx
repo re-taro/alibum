@@ -17,7 +17,6 @@ export type InputModalProps = {
   footer: ReactNode;
 } & Pick<ModalProps, "isOpen" | "onClose">;
 
-// eslint-disable-next-line react/display-name
 export const Modal: FC<InputModalProps> = ({
   children,
   footer,
