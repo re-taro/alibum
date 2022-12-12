@@ -9,7 +9,6 @@ export const EditCard: FC<CardProps> = ({ text, imageRef }) => (
     rounded="md"
     width="full"
     height="auto"
-    maxWidth="30rem"
     backgroundColor="white"
   >
     <CardBody position="relative">
