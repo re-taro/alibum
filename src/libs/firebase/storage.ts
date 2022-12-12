@@ -3,10 +3,10 @@ import type { StorageReference, UploadMetadata } from "firebase/storage";
 import { storage } from "./init";
 
 export const createStoregeRef = (
-  filename: string,
+  fileName: string,
   index: number,
   uuid: string,
-): StorageReference => ref(storage, `images/${uuid}/${filename}_${index}`);
+): StorageReference => ref(storage, `images/${uuid}/${fileName}_${index}`);
 
 export const uploadImage = (
   imageFile: File,

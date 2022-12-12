@@ -99,7 +99,7 @@ export const createCardListItem = async (
     uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
       .then((ref) => getDownloadURL(ref))
       .then((imageref) => {
-        storeData.imageref = imageref;
+        storeData.imageRef = imageref;
       });
   }
 
