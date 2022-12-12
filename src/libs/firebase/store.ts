@@ -118,6 +118,5 @@ export const getCardList = async (
   await getDocs(ref).then((snapshot) =>
     snapshot.forEach((docs) => list.push(docs.data() as StoreCardListItem)),
   );
-
   return list;
 };
