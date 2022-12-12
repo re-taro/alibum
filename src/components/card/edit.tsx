@@ -1,12 +1,7 @@
 import type { FC } from "react";
 import { AspectRatio, Box, Card, CardBody, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
-
-/* eslint react/require-default-props:0 */
-export type CardProps = {
-  text: string;
-  imageref?: string;
-};
+import type { CardProps } from "./type";
 
 export const EditCard: FC<CardProps> = ({ text, imageref }) => (
   <Card
