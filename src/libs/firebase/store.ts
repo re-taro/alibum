@@ -32,7 +32,7 @@ export type StoreMenuList = StoreMenuListItem[];
 
 export type StoreCardListItem = {
   text: string;
-  imageref?: string;
+  imageRef?: string;
 };
 
 export type CreateStoreCardListItem = {
