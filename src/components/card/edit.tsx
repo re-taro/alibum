@@ -7,42 +7,34 @@ type EditCardProps = {
   imageref: string;
 };
 
-export const EditCard: FC<EditCardProps> = ({ text, imageref }) =>
-  imageref ? (
-    <Card
-      shadow="md"
-      rounded="md"
-      width="70vw"
-      height="auto"
-      maxWidth="30rem"
-      backgroundColor="white"
-    >
-      <CardBody position="relative">
-        <Flex flexDir="column" alignItems="center" textAlign="center" gap={4}>
-          <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
+export const EditCard: FC<EditCardProps> = ({ text, imageref }) => (
+  <Card
+    shadow="md"
+    rounded="md"
+    width="full"
+    height="auto"
+    maxWidth="30rem"
+    backgroundColor="white"
+  >
+    <CardBody position="relative">
+      <Flex flexDir="column" alignItems="center" textAlign="center" gap={4}>
+        <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
+        {imageref ? (
           <Box w="full">
-            <AspectRatio ratio={16 / 9}>
+            <AspectRatio
+              ratio={16 / 9}
+              visibility={{ visibility: imageref ? "visible" : "hidden" }}
+            >
               <Image
                 src={imageref}
                 alt="Present for you"
                 fill
                 style={{ objectFit: "contain" }}
               />
-            </AspectRatio>
+            </AspectRatio>{" "}
           </Box>
-        </Flex>
-      </CardBody>
-    </Card>
-  ) : (
-    <Card
-      shadow="md"
-      rounded="md"
-      width="70vw"
-      maxWidth="30rem"
-      backgroundColor="white"
-      padding={4}
-      textAlign="center"
-    >
-      <Text fontSize={["1rem", "1rem", "1.25rem", "1.5rem"]}>{text}</Text>
-    </Card>
-  );
+        ) : null}
+      </Flex>
+    </CardBody>
+  </Card>
+);
