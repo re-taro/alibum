@@ -16,7 +16,7 @@ export const useStoreMenuList = (
         setLoadingState(false);
       }
     })();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [storeList, setListState, isLoading];
