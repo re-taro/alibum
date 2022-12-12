@@ -1,15 +1,15 @@
-import { getList, StoreList } from "libs/firebase/store";
+import { getMenuList, StoreMenuList } from "libs/firebase/store";
 import { useState, useCallback, useEffect } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
-export const useStoreList = (
+export const useStoreMenuList = (
   uuid: string,
-): [StoreList, Dispatch<SetStateAction<StoreList>>, boolean] => {
-  const [storeList, setListState] = useState<StoreList>([]);
+): [StoreMenuList, Dispatch<SetStateAction<StoreMenuList>>, boolean] => {
+  const [storeList, setListState] = useState<StoreMenuList>([]);
   const [isLoading, setLoadingState] = useState<boolean>(true);
 
   const getListFn = useCallback(async () => {
-    const list = await getList(uuid);
+    const list = await getMenuList(uuid);
     setListState(list);
     setLoadingState(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
