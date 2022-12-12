@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { AspectRatio, Box, Card, CardBody, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import type { CardProps } from "./type";
+import type { CardProps } from "./types";
 
 export const EditCard: FC<CardProps> = ({ text, imageref }) => (
   <Card
