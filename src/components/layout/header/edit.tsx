@@ -18,14 +18,13 @@ import { IconButton } from "../../shared/button/icon-button";
 
 type EditHeaderProps = {
   name: string;
+  link: string;
 };
 
-export const EditHeader: FC<EditHeaderProps> = ({ name }) => {
+export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { onCopy, value, hasCopied } = useClipboard(
-    `https://alibum.re-taro.dev${router.asPath}/share`, // TODO: Change path to production
-  );
+  const { onCopy, value, hasCopied } = useClipboard(link);
 
   const handler = (path: string) => {
     router.push(path);
