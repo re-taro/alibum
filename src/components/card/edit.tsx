@@ -2,12 +2,13 @@ import type { FC } from "react";
 import { AspectRatio, Box, Card, CardBody, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
-type EditCardProps = {
+/* eslint react/require-default-props:0 */
+export type CardProps = {
   text: string;
-  imageref: string;
+  imageref?: string;
 };
 
-export const EditCard: FC<EditCardProps> = ({ text, imageref }) => (
+export const EditCard: FC<CardProps> = ({ text, imageref }) => (
   <Card
     shadow="md"
     rounded="md"
