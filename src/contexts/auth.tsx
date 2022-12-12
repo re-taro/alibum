@@ -22,14 +22,12 @@ export const useAuthContext = () => useContext(AuthContext);
 export const AuthProvider = ({ children }: AuthProps) => {
   const router = useRouter();
   const [user, setUser] = useState<UserType>(null);
-
   const value = useMemo(
     () => ({
       user,
     }),
     [user],
   );
-
   useEffect(() => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
       setUser(u);

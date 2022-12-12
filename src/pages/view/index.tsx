@@ -2,8 +2,8 @@ import { Box, Text } from "@chakra-ui/react";
 import type { HTMLChakraProps } from "@chakra-ui/react";
 import type { NextPageWithLayout } from "next";
 import type { FC } from "react";
-import { createGetLayout } from "components/layout/view";
-import type { ViewLayoutProps } from "components/layout/view";
+import { createGetLayout } from "../../components/layout/view";
+import type { ViewLayoutProps } from "../../components/layout/view";
 
 const data: ViewLayoutProps = {
   title: "This is Test!!!!!!!",
