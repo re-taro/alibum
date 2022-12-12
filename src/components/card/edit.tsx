@@ -13,7 +13,12 @@ export const EditCard: FC<CardProps> = ({ text, imageRef }) => (
   >
     <CardBody position="relative">
       <Flex flexDir="column" alignItems="center" textAlign="center" gap={4}>
-        <Text fontSize={{ base: "1rem", lg: "1.5rem" }}>{text}</Text>
+        <Text
+          fontSize={{ base: "1rem", lg: "1.5rem" }}
+          maxW="calc(100% - 2.5rem)"
+        >
+          {text}
+        </Text>
         {imageRef ? (
           <Box w="full">
             <AspectRatio ratio={16 / 9}>
