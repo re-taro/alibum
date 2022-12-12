@@ -26,8 +26,8 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onCopy, value, hasCopied } = useClipboard(link);
 
-  const handler = (path: string) => {
-    router.push(path);
+  const handler = async (path: string): Promise<void> => {
+    await router.push(path);
   };
 
   return (
@@ -41,7 +41,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
       w="full"
       py="4"
     >
-      <IconButton label="arrow" size="md" icon="material-symbols:arrow-back" />
+      <IconButton label="link" size="md" icon="material-symbols:arrow-back" />
       <Text
         fontSize="2xl"
         maxWidth="60vw"
