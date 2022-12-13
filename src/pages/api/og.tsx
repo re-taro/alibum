@@ -3,6 +3,7 @@ export const config = {
   runtime: 'experimental-edge',
 };
 
+
 const backGroundPng = new URL(
     "../../assets/OGP_.png",
     import.meta.url,
