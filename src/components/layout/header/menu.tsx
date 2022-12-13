@@ -17,6 +17,7 @@ export const MenuHeader: FC = () => {
       top={0}
       w="full"
       py="4"
+      zIndex={100}
     >
       <Logo />
       <Button
