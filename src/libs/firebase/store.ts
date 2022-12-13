@@ -1,3 +1,4 @@
+import type { CollectionReference, DocumentData } from "firebase/firestore";
 import {
   addDoc,
   collection,
@@ -6,7 +7,6 @@ import {
   query,
   updateDoc,
 } from "firebase/firestore";
-import type { DocumentData, CollectionReference } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
@@ -42,15 +42,13 @@ export type CreateStoreCardListItem = {
 
 export type StoreCardList = StoreCardListItem[];
 
-export const getMenuListRef = (
-  uuid: string,
-): CollectionReference<DocumentData> => collection(db, "Users", uuid, "List");
+export const getMenuListRef = (uuid: string): CollectionReference =>
+  collection(db, "Users", uuid, "List");
 
 export const getCardListRef = (
   uuid: string,
   listId: string,
-): CollectionReference<DocumentData> =>
-  collection(db, "Users", uuid, "List", listId, "Card");
+): CollectionReference => collection(db, "Users", uuid, "List", listId, "Card");
 
 export const createMenuListItem = async (
   uuid: string,
@@ -60,13 +58,11 @@ export const createMenuListItem = async (
 
   await updateDoc(doc(db, "Users", uuid, "List", res.id), { id: res.id });
 
-  const createdData: StoreMenuListItem = {
+  return {
     name: data.name,
     date: data.date,
     id: res.id,
   };
-
-  return createdData;
 };
 
 // List全取得
@@ -103,7 +99,7 @@ export const createCardListItem = async (
       });
   }
 
-  addDoc(getCardListRef(uuid, listId), storeData);
+  await addDoc(getCardListRef(uuid, listId), storeData);
 
   return storeData;
 };
