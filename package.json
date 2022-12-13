@@ -45,7 +45,7 @@
     "@chakra-ui/system": "2.3.4",
     "@next/env": "13.0.6",
     "@types/react": "18.0.26",
-    "@typescript-eslint/eslint-plugin": "5.46.0",
+    "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.46.0",
     "eslint": "8.29.0",
     "eslint-config-airbnb": "19.0.4",
