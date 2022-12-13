@@ -4332,7 +4332,7 @@ __metadata:
     eslint-plugin-react: 7.31.11
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.15.0
-    framer-motion: 7.7.2
+    framer-motion: 7.7.3
     next: 13.0.6
     next-pwa: 5.6.0
     next-seo: 5.15.0
@@ -6132,9 +6132,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:7.7.2":
-  version: 7.7.2
-  resolution: "framer-motion@npm:7.7.2"
+"framer-motion@npm:7.7.3":
+  version: 7.7.3
+  resolution: "framer-motion@npm:7.7.3"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": 10.13.1
@@ -6146,7 +6146,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 553240ce140a060b506a935273f8e24b2b242cefc2aa7b1bbc1c22b00ef489d6c0548e444299eceef8e540a45854c36f8f047479f1fb1f361015b4f6b5d9f556
+  checksum: a8d70a74ce6cc0d19758b905ed00a270c63612701238233328a4b80150ad12bc8a5638667f1868aa2e01fa9fe717f3fd2c99cdfcfbabf9bb565f58d4ebca4ce6
   languageName: node
   linkType: hard
 
