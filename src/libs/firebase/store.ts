@@ -1,4 +1,4 @@
-import type { CollectionReference, DocumentData } from "firebase/firestore";
+import type { CollectionReference } from "firebase/firestore";
 import {
   addDoc,
   collection,
