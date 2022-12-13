@@ -4314,6 +4314,7 @@ __metadata:
     "@chakra-ui/cli": 2.2.0
     "@chakra-ui/icon": 3.0.13
     "@chakra-ui/react": 2.4.3
+    "@chakra-ui/system": 2.3.4
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@iconify/react": 4.0.1
@@ -4340,6 +4341,7 @@ __metadata:
     prettier: 2.8.1
     react: 18.2.0
     react-dom: 18.2.0
+    react-hook-form: 7.40.0
     sharp: 0.31.2
     typescript: 4.9.4
   languageName: unknown
@@ -8520,6 +8522,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: f8db4d64aa5c983d15e80d0fd86d1d649e33744e7b6b70babb08c95f7828e38c2cce7068c0007cf3263eec8b738ebd317d24a613df7f75b472bad6529cf8d6b6
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:7.40.0":
+  version: 7.40.0
+  resolution: "react-hook-form@npm:7.40.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 8187981c14cc2e016c263a7427ffc5617b126efed97003e259efff1af991d12bef5cb599d824385f760a03a0676eb0d19007aa3ebcc65832cfe819b3802530c5
   languageName: node
   linkType: hard
 
