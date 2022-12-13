@@ -1,4 +1,6 @@
+import { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
+
 export const config = {
   runtime: 'experimental-edge',
 };
@@ -8,7 +10,17 @@ const backGroundPng = new URL(
     import.meta.url,
 ).toString();
 
-export default function() {
+const font = fetch(
+    new URL("../../assets/KosugiMaru-Regular.ttf", import.meta.url)
+).then((res) => res.arrayBuffer());
+
+export default async (req: NextRequest) => {
+    const { searchParams } = new URL(req.url);
+    const hasTitle = searchParams.has("title");
+    const title = hasTitle 
+    ? searchParams.get("title")?.slice(0, 100)
+    : "My default title";
+    const fontData = await font;
   return new ImageResponse(
     (
       <div style={{
@@ -24,19 +36,27 @@ export default function() {
           backgroundImage: `url(${backGroundPng})`,
         }}>
         <option style={{
-            fontFamily: 'sans-serif, "Material Icons"',
+            fontFamily: 'KosugiMaru,"Material Icons"',
         }}>
         </option> 
         <p style={{
             fontSize: '60px',
         }}>
-          
+          { title }
         </p>
       </div>
     ),
     {
       width: 1200,
       height: 600,
+      fonts: [
+        {
+          name: "KosugiMaru",
+          data: fontData,
+          style: "normal",
+        },
+      ],
     },
-  );
+
+    );
 };
