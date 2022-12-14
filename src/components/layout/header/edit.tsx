@@ -37,6 +37,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
       alignItems="center"
       bgColor="white"
       position="fixed"
+      zIndex={100}
       top={0}
       w="full"
       py="4"
