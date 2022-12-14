@@ -42,7 +42,12 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
       w="full"
       py="4"
     >
-      <IconButton label="link" size="md" icon="material-symbols:arrow-back" />
+      <IconButton
+        label="link"
+        size="md"
+        icon="material-symbols:arrow-back"
+        onClick={() => handler("/")}
+      />
       <Text
         fontSize="2xl"
         maxWidth="60vw"
