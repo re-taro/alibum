@@ -4272,6 +4272,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.15.0
     framer-motion: 7.7.3
+    jotai: 1.11.2
     next: 13.0.6
     next-pwa: 5.6.0
     next-seo: 5.15.0
@@ -7066,6 +7067,46 @@ __metadata:
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
   checksum: 98cd68b696781caed61c983a3ee30bf880b5bd021c01d98f47b143d4362b85d0737f8523761e2713d45e18b4f9a2b98af1eaee77afade4111bb65c77d6f7c980
+  languageName: node
+  linkType: hard
+
+"jotai@npm:1.11.2":
+  version: 1.11.2
+  resolution: "jotai@npm:1.11.2"
+  peerDependencies:
+    "@babel/core": "*"
+    "@babel/template": "*"
+    jotai-immer: "*"
+    jotai-optics: "*"
+    jotai-redux: "*"
+    jotai-tanstack-query: "*"
+    jotai-urql: "*"
+    jotai-valtio: "*"
+    jotai-xstate: "*"
+    jotai-zustand: "*"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@babel/template":
+      optional: true
+    jotai-immer:
+      optional: true
+    jotai-optics:
+      optional: true
+    jotai-redux:
+      optional: true
+    jotai-tanstack-query:
+      optional: true
+    jotai-urql:
+      optional: true
+    jotai-valtio:
+      optional: true
+    jotai-xstate:
+      optional: true
+    jotai-zustand:
+      optional: true
+  checksum: 3cdd7cf31ddf3e63ef2f168555cca7ecd5e84b8699eb3ceb0f2fc6eef9a695a21df81274627076c8978c9e773437bc24e93eaa012ab8de0c66dc1942cf5113bb
   languageName: node
   linkType: hard
 
