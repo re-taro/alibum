@@ -92,7 +92,7 @@ export const createCardListItem = async (
   const storeData: StoreCardListItem = { text };
 
   if (imageData?.imageFile && imageData.imageIndex) {
-    uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
+    uploadImage(imageData.imageFile, uuid)
       .then((ref) => getDownloadURL(ref))
       .then((imageref) => {
         storeData.imageRef = imageref;
