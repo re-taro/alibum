@@ -15,7 +15,7 @@ export const ViewImageCard: FC<Required<ViewCardProps>> = ({
     shadow="md"
     rounded="md"
     height="auto"
-    minH={93}
+    minH="92px"
     minW={{ base: "35%", md: "20%" }}
     backgroundColor="extra.500"
   >
@@ -47,7 +47,7 @@ export const ViewTextCard: FC<Omit<ViewCardProps, "imageRef">> = ({
     shadow="md"
     rounded="md"
     backgroundColor="white"
-    minH={93}
+    minH="92px"
     w={{ base: "40%", md: "20%" }}
     _odd={{ bg: "secondary.500" }}
     _even={{ bg: "primary.500" }}
