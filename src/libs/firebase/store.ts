@@ -1,5 +1,4 @@
 import {
-  CollectionReference,
   addDoc,
   collection,
   doc,
@@ -7,14 +6,10 @@ import {
   query,
   updateDoc,
 } from "firebase/firestore";
+import type { CollectionReference } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
-
-export type ImageInfo = {
-  imageFile: File;
-  imageIndex: number;
-};
 
 export type CreateStoreMenuListItem = {
   name: string;
@@ -38,7 +33,7 @@ export type StoreCardListItem = {
 
 export type CreateStoreCardListItem = {
   text: string;
-  imageData?: ImageInfo;
+  imageFile?: File;
 };
 
 export type StoreCardList = StoreCardListItem[];
@@ -89,15 +84,11 @@ export const createCardListItem = async (
   listId: string,
   data: CreateStoreCardListItem,
 ): Promise<StoreCardListItem> => {
-  const { text, imageData } = data;
+  const { text, imageFile } = data;
   const storeData: StoreCardListItem = { text, createdAt: new Date() };
 
-  if (imageData?.imageFile && imageData.imageIndex) {
-    const ref = await uploadImage(
-      imageData.imageFile,
-      imageData.imageIndex,
-      uuid,
-    );
+  if (imageFile) {
+    const ref = await uploadImage(imageFile, uuid);
     const imageRef = await getDownloadURL(ref);
     storeData.imageRef = imageRef;
   }

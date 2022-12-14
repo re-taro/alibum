@@ -4,21 +4,19 @@ import { storage } from "./init";
 
 export const createStoregeRef = (
   fileName: string,
-  index: number,
   uuid: string,
 ): StorageReference =>
   ref(storage, `images/${uuid}/${fileName}_${crypto.randomUUID()}`);
 
 export const uploadImage = (
   imageFile: File,
-  imageIndex: number,
   uuid: string,
 ): Promise<StorageReference> => {
   const meta: UploadMetadata = {
     cacheControl: "public,max-age=300",
   };
   return uploadBytes(
-    createStoregeRef(imageFile.name, imageIndex, uuid),
+    createStoregeRef(imageFile.name, uuid),
     imageFile,
     meta,
   ).then((snapshot) => snapshot.ref);
