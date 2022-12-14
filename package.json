@@ -30,6 +30,7 @@
     "@emotion/styled": "11.10.5",
     "@iconify/react": "4.0.1",
     "@next/font": "13.0.6",
+    "@vercel/og": "0.0.21",
     "firebase": "9.15.0",
     "framer-motion": "7.8.0",
     "next": "13.0.6",
