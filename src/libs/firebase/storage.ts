@@ -6,7 +6,8 @@ export const createStoregeRef = (
   fileName: string,
   index: number,
   uuid: string,
-): StorageReference => ref(storage, `images/${uuid}/${fileName}_${crypto.randomUUID()}`);
+): StorageReference =>
+  ref(storage, `images/${uuid}/${fileName}_${crypto.randomUUID()}`);
 
 export const uploadImage = (
   imageFile: File,

@@ -33,7 +33,7 @@ export type StoreMenuList = StoreMenuListItem[];
 export type StoreCardListItem = {
   text: string;
   imageRef?: string;
-  createdAt: Date
+  createdAt: Date;
 };
 
 export type CreateStoreCardListItem = {
@@ -93,9 +93,13 @@ export const createCardListItem = async (
   const storeData: StoreCardListItem = { text, createdAt: new Date() };
 
   if (imageData?.imageFile && imageData.imageIndex) {
-    const ref = await uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
-    const imageRef = await getDownloadURL(ref) 
-    storeData.imageRef = imageRef
+    const ref = await uploadImage(
+      imageData.imageFile,
+      imageData.imageIndex,
+      uuid,
+    );
+    const imageRef = await getDownloadURL(ref);
+    storeData.imageRef = imageRef;
   }
 
   await addDoc(getCardListRef(uuid, listId), storeData);
