@@ -1,7 +1,7 @@
 {
   "name": "alibum",
   "version": "1.0.0",
-  "description": "「ありばむ」で日頃の感謝をサプライズしよう",
+  "description": "日頃の感謝でサプライズをしよう",
   "repository": {
     "type": "git",
     "url": "https://github.com/re-taro/alibum.git"
@@ -16,6 +16,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "build:size": "cross-env ANALYZE=true yarn build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && npm run fmt",
@@ -44,10 +45,12 @@
   "devDependencies": {
     "@chakra-ui/cli": "2.2.0",
     "@chakra-ui/system": "2.3.4",
+    "@next/bundle-analyzer": "13.0.6",
     "@next/env": "13.0.6",
     "@types/react": "18.0.26",
     "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.46.1",
+    "cross-env": "7.0.3",
     "eslint": "8.29.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
