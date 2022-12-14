@@ -34,7 +34,7 @@ const Login: NextPage = () => {
         fontSize={{ base: "xs", md: "xl" }}
         pb={{ base: "28", md: "64" }}
       >
-        毎日の感謝をサプライズしよう
+        日頃の感謝でサプライズをしよう
       </Text>
       <Button
         colorScheme="extra"
