@@ -3307,7 +3307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@motionone/animation@npm:^10.13.1":
+"@motionone/animation@npm:^10.15.1":
   version: 10.15.1
   resolution: "@motionone/animation@npm:10.15.1"
   dependencies:
@@ -3319,17 +3319,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@motionone/dom@npm:10.13.1":
-  version: 10.13.1
-  resolution: "@motionone/dom@npm:10.13.1"
+"@motionone/dom@npm:^10.15.3":
+  version: 10.15.3
+  resolution: "@motionone/dom@npm:10.15.3"
   dependencies:
-    "@motionone/animation": ^10.13.1
-    "@motionone/generators": ^10.13.1
-    "@motionone/types": ^10.13.0
-    "@motionone/utils": ^10.13.1
+    "@motionone/animation": ^10.15.1
+    "@motionone/generators": ^10.15.1
+    "@motionone/types": ^10.15.1
+    "@motionone/utils": ^10.15.1
     hey-listen: ^1.0.8
     tslib: ^2.3.1
-  checksum: cbf7e9f4f23eb6dc0ae7fb7d19b4ad9c3fab51b161c9ad309dbe7e50de676002ffad35d5123d610d3a9d2bdc717cfbc79909facc32fbf2ca871287861bca6e6d
+  checksum: e43746b837a4c02e623694a54d294b72b44deb4210869adb6814ea800c7a7324b05c56911cf81b98819175100bd8c72017787b264a568fe0d9cdc78726046018
   languageName: node
   linkType: hard
 
@@ -3343,7 +3343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@motionone/generators@npm:^10.13.1":
+"@motionone/generators@npm:^10.15.1":
   version: 10.15.1
   resolution: "@motionone/generators@npm:10.15.1"
   dependencies:
@@ -3354,14 +3354,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@motionone/types@npm:^10.13.0, @motionone/types@npm:^10.15.1":
+"@motionone/types@npm:^10.15.1":
   version: 10.15.1
   resolution: "@motionone/types@npm:10.15.1"
   checksum: 98091f7dca257508d94d1080678c433da39a814e8e58aaa742212bf6c2a5b5e2120a6251a06e3ea522219ce6d1b6eb6aa2cab224b803fe52789033d8398ef0aa
   languageName: node
   linkType: hard
 
-"@motionone/utils@npm:^10.13.1, @motionone/utils@npm:^10.15.1":
+"@motionone/utils@npm:^10.15.1":
   version: 10.15.1
   resolution: "@motionone/utils@npm:10.15.1"
   dependencies:
@@ -4332,7 +4332,7 @@ __metadata:
     eslint-plugin-react: 7.31.11
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.15.0
-    framer-motion: 7.7.3
+    framer-motion: 7.8.0
     next: 13.0.6
     next-pwa: 5.6.0
     next-seo: 5.15.0
@@ -6132,12 +6132,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:7.7.3":
-  version: 7.7.3
-  resolution: "framer-motion@npm:7.7.3"
+"framer-motion@npm:7.8.0":
+  version: 7.8.0
+  resolution: "framer-motion@npm:7.8.0"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
-    "@motionone/dom": 10.13.1
+    "@motionone/dom": ^10.15.3
     hey-listen: ^1.0.8
     tslib: 2.4.0
   peerDependencies:
@@ -6146,7 +6146,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: a8d70a74ce6cc0d19758b905ed00a270c63612701238233328a4b80150ad12bc8a5638667f1868aa2e01fa9fe717f3fd2c99cdfcfbabf9bb565f58d4ebca4ce6
+  checksum: 14fe0d0cc115010c104d87dff76f368ca060a85e6b7c9a324eda827528ba2a0617d4563cacfc5ef1aaac0765f0ecfe5d53141161e624ef1e7c0c8d2854a763bb
   languageName: node
   linkType: hard
 
