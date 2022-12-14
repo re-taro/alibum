@@ -18,6 +18,7 @@ export const ViewHeader: FC<ViewHeaderProps> = ({ date, name, title }) => (
     position="fixed"
     w="full"
     py={2}
+    zIndex={100}
   >
     <Flex>
       <Icon icon="mdi:cake-variant-outline" width="1.25rem" height="1.25rem" />
