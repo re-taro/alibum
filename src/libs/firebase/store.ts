@@ -1,5 +1,5 @@
-import type { CollectionReference } from "firebase/firestore";
 import {
+  CollectionReference,
   addDoc,
   collection,
   doc,
@@ -33,6 +33,7 @@ export type StoreMenuList = StoreMenuListItem[];
 export type StoreCardListItem = {
   text: string;
   imageRef?: string;
+  createdAt: Date
 };
 
 export type CreateStoreCardListItem = {
@@ -89,14 +90,12 @@ export const createCardListItem = async (
   data: CreateStoreCardListItem,
 ): Promise<StoreCardListItem> => {
   const { text, imageData } = data;
-  const storeData: StoreCardListItem = { text };
+  const storeData: StoreCardListItem = { text, createdAt: new Date() };
 
   if (imageData?.imageFile && imageData.imageIndex) {
-    uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
-      .then((ref) => getDownloadURL(ref))
-      .then((imageref) => {
-        storeData.imageRef = imageref;
-      });
+    const ref = await uploadImage(imageData.imageFile, imageData.imageIndex, uuid)
+    const imageRef = await getDownloadURL(ref) 
+    storeData.imageRef = imageRef
   }
 
   await addDoc(getCardListRef(uuid, listId), storeData);
@@ -112,7 +111,16 @@ export const getCardList = async (
   const list: StoreCardList = [];
   // TODO:pushの計算量的に変えるかもしれない
   await getDocs(ref).then((snapshot) =>
-    snapshot.forEach((docs) => list.push(docs.data() as StoreCardListItem)),
+    snapshot.forEach((docs) =>
+      list.push({
+        text: docs.data().text,
+        imageRef: docs.data().date,
+        createdAt: docs.data().createdAt.toDate(),
+      }),
+    ),
   );
+
+  list.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
+
   return list;
 };
