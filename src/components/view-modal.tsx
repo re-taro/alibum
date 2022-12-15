@@ -8,11 +8,11 @@ import {
   ModalOverlay,
   AspectRatio,
   Flex,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import type { FC } from "react";
 import type { ModalProps } from "@chakra-ui/react";
 import Image from "next/image";
-import { IconButton } from "./shared/button/icon-button";
 
 export type ViewModalProps = {
   text: string;
@@ -42,14 +42,8 @@ export const ViewModal: FC<ViewModalProps> = ({
           : "primary.500"
       }
     >
-      <ModalHeader p={0}>
-        <IconButton
-          label="Close"
-          icon="material-symbols:arrow-back-rounded"
-          onClick={onClose}
-          ml="4"
-          mt="1"
-        />
+      <ModalHeader>
+        <ModalCloseButton />
       </ModalHeader>
       <ModalBody>
         <Flex
