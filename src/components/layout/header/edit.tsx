@@ -77,7 +77,12 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
             />
           </ModalHeader>
           <ModalBody>
-            <Input rounded="md" bgColor="gray.500" value={value} />
+            <Input
+              rounded="md"
+              bgColor="gray.500"
+              value={value}
+              onChange={() => {}}
+            />
           </ModalBody>
           <ModalFooter justifyContent="space-around">
             <Button
