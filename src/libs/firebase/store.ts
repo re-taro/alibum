@@ -1,15 +1,14 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import type { CollectionReference } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
-import type { CreateStoreCardListItem, CreateStoreMenuListItem, StoreCardListItem, StoreMenuListItem } from "./types";
-
+import type {
+  CreateStoreCardListItem,
+  CreateStoreMenuListItem,
+  StoreCardListItem,
+  StoreMenuListItem,
+} from "./types";
 
 export const getMenuListRef = (uuid: string): CollectionReference =>
   collection(db, "Users", uuid, "List");
@@ -52,4 +51,3 @@ export const createCardListItem = async (
 
   return storeData;
 };
-
