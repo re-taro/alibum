@@ -2,23 +2,20 @@ import { DefaultSeo } from "next-seo";
 import type { AppPropsWithLayout } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useStore } from "@nanostores/react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { Chakra } from "../components/chakra";
 import defaultSEOConfig from "../../next-seo.config";
 import "../styles/globals.css";
-import { userStore } from "../stores/user";
 import { auth } from "../libs/firebase/init";
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
-  const user = useStore(userStore);
+  const getLayout = Component.getLayout || ((page) => page);
   useEffect(() => {
-    const authStateChanged = onAuthStateChanged(auth, async (u) => {
-      userStore.set(u);
+    const authStateChanged = onAuthStateChanged(auth, async (user) => {
       if (
-        !u &&
+        !user &&
         router.asPath.match(
           /\/((?!api|_next\/static|favicon.ico|view|login).*)/,
         )
@@ -29,8 +26,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     return () => {
       authStateChanged();
     };
-  }, [router, user]);
-  const getLayout = Component.getLayout || ((page) => page);
+  }, [router]);
   return (
     <Chakra>
       <Head>
