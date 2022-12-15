@@ -32,6 +32,7 @@
     "@iconify/react": "4.0.1",
     "@nanostores/react": "0.4.1",
     "@next/font": "13.0.6",
+    "@tanstack/react-query": "4.20.4",
     "firebase": "9.15.0",
     "firebase-admin": "11.3.0",
     "framer-motion": "7.10.0",
@@ -42,7 +43,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.40.0",
-    "react-query": "3.39.2",
     "sharp": "0.31.2"
   },
   "devDependencies": {
