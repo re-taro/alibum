@@ -14,7 +14,6 @@ import type {  ModalProps } from "@chakra-ui/react"
 import Image from "next/image";
 import { IconButton } from "./shared/button/icon-button";
 
-// ファイルの場所はパス修正がだるいので最後にやる
 
 export type ViewModalProps = {
   text: string;
