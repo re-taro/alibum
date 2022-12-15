@@ -1,16 +1,27 @@
 import type { NextPage } from "next";
 import { Flex, Text, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { Logo } from "../../components/alibum";
 import { login } from "../../libs/firebase/auth";
-import { useAuthContext } from "../../contexts/auth";
+import { auth } from "../../libs/firebase/init";
 
 const Login: NextPage = () => {
-  const { user } = useAuthContext();
   const router = useRouter();
-  if (user) {
-    router.push("/");
-  }
+  useEffect(() => {
+    const authStateChanged = onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        await router.push("/");
+      } else {
+        await router.push("/login");
+      }
+    });
+    return () => {
+      authStateChanged();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const onClick = (): void => {
     login();
   };
