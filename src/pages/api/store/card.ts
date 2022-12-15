@@ -3,12 +3,16 @@ import { cert } from "firebase-admin/app";
 import type { ServiceAccount } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
-import { StoreCardList, StoreCardListItem } from "libs/firebase/store";
+import type { StoreCardListItem, StoreCardList } from "libs/firebase/types";
 import serviceAccount from "../../../../hackU_admin.json";
+
+type Error = {
+  message: string;
+};
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse<StoreCardList | StoreCardListItem>,
+  res: NextApiResponse<StoreCardList | StoreCardListItem | Error>,
 ) => {
   try {
     if (admin.apps.length === 0) {
@@ -18,28 +22,37 @@ export default async (
     }
     const db = getFirestore();
 
-    if (req.method === "POST") {
-      const {
-        query: { uuid, listid },
-        body,
-      } = req;
+    // 一応残す
+    // if (req.method === "POST") {
+    //   const {
+    //     query: { uuid, listid },
+    //     body,
+    //   } = req;
 
-      const colRef = db
-        .collection("Users")
-        .doc(uuid as string)
-        .collection("List")
-        .doc(listid as string)
-        .collection("Cards");
+    //   if (!uuid) {
+    //     throw new Error("クエリがない");
+    //   }
 
-      await colRef.add(body);
+    //   const colRef = db
+    //     .collection("Users")
+    //     .doc(uuid as string)
+    //     .collection("List")
+    //     .doc(listid as string)
+    //     .collection("Cards");
 
-      return res.status(200).json(body);
-    }
+    //   await colRef.add(body);
+
+    //   return res.status(200).json(body);
+    // }
     if (req.method === "GET") {
       const list: StoreCardList = [];
       const {
         query: { uuid, listid },
       } = req;
+
+      if (!(uuid && listid)) {
+        throw new Error("クエリがない");
+      }
 
       const colRef = db
         .collection("Users")
@@ -54,11 +67,14 @@ export default async (
           snapshot.forEach((doc) => list.push(doc.data() as StoreCardListItem)),
         );
 
+      list.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
+
       return res.status(200).json(list);
     }
 
     return res.status(200);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
-    return res.status(500).json({ erorr: { message: e.message } });
+    return res.status(500).json({ message: e.message });
   }
 };
