@@ -16,7 +16,6 @@ import { createMenuListItem } from "../libs/firebase/store";
 
 const Menu: NextPageWithLayout = () => {
   const [list, setList] = useState<StoreMenuList>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const { user } = useAuthContext();
   useEffect(() => {
     (async () => {
@@ -45,7 +44,6 @@ const Menu: NextPageWithLayout = () => {
     onClose();
     reset();
   };
-  if (loading) return <p>Loading</p>;
   return (
     <>
       <Box as="section" w="full">
