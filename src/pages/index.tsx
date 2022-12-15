@@ -10,20 +10,19 @@ import { MenuForm } from "../components/form/menu";
 import type {
   CreateStoreMenuListItem,
   StoreMenuList,
-} from "../libs/firebase/store";
+} from "../libs/firebase/types";
 import { useAuthContext } from "../contexts/auth";
-import { getMenuList, createMenuListItem } from "../libs/firebase/store";
+import { createMenuListItem } from "../libs/firebase/store";
 
 const Menu: NextPageWithLayout = () => {
   const [list, setList] = useState<StoreMenuList>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const { user } = useAuthContext();
   useEffect(() => {
     (async () => {
       if (user) {
-        const res = await getMenuList(user.uid);
-        setList(res);
-        setLoading(false);
+        // const res = await getMenuList(user.uid);
+        // setList(res);
+        // setLoading(false);
       }
     })();
   }, [user]);
@@ -45,7 +44,6 @@ const Menu: NextPageWithLayout = () => {
     onClose();
     reset();
   };
-  if (loading) return <p>Loading</p>;
   return (
     <>
       <Box as="section" w="full">
