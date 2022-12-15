@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { cert } from "firebase-admin/app";
-import type { ServiceAccount } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
 import type { StoreCardListItem, StoreCardList } from "../../../libs/firebase/types";
-import serviceAccount from "../../../../hackU_admin.json";
 
 type Error = {
   message: string;
@@ -17,7 +15,11 @@ export default async (
   try {
     if (admin.apps.length === 0) {
       admin.initializeApp({
-        credential: cert(serviceAccount as ServiceAccount),
+        credential: cert({
+          projectId: process.env.TYPE,
+          privateKey: process.env.PRIVATE_KEY,
+          clientEmail: process.env.CLIENT_EMAIL,
+          }),
       });
     }
     const db = getFirestore();
