@@ -3,59 +3,60 @@ import { cert } from "firebase-admin/app";
 import type { ServiceAccount } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
-import { StoreMenuList, StoreMenuListItem } from "libs/firebase/store";
+import { StoreCardList, StoreCardListItem } from "libs/firebase/store";
 import serviceAccount from "../../../../hackU_admin.json";
 
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse<StoreMenuList | StoreMenuListItem>,
+  res: NextApiResponse<StoreCardList | StoreCardListItem>,
 ) => {
-  if (admin.apps.length === 0) {
-    admin.initializeApp({
-      credential: cert(serviceAccount as ServiceAccount),
-    });
-  }
-  const db = getFirestore();
   try {
+    if (admin.apps.length === 0) {
+      admin.initializeApp({
+        credential: cert(serviceAccount as ServiceAccount),
+      });
+    }
+    const db = getFirestore();
+
     if (req.method === "POST") {
       const {
-        query: { uuid },
+        query: { uuid, listid },
         body,
-      } = req;
-      const docRef = db
-        .collection("test")
-        .doc(uuid as string)
-        .collection("List");
-      const refId = await docRef.add(body);
-
-      const listRef = db
-        .collection("test")
-        .doc(uuid as string)
-        .collection("List")
-        .doc(refId.id);
-      await listRef.update({ id: refId.id });
-
-      return res.status(200).json({ id: refId.id, ...body });
-    }
-
-    if (req.method === "GET") {
-      const list: StoreMenuList = [];
-      const {
-        query: { uuid },
       } = req;
 
       const colRef = db
-        .collection("test")
+        .collection("Users")
         .doc(uuid as string)
-        .collection("List");
+        .collection("List")
+        .doc(listid as string)
+        .collection("Cards");
+
+      await colRef.add(body);
+
+      return res.status(200).json(body);
+    }
+    if (req.method === "GET") {
+      const list: StoreCardList = [];
+      const {
+        query: { uuid, listid },
+      } = req;
+
+      const colRef = db
+        .collection("Users")
+        .doc(uuid as string)
+        .collection("List")
+        .doc(listid as string)
+        .collection("Cards");
+
       await colRef
         .get()
         .then((snapshot) =>
-          snapshot.forEach((doc) => list.push(doc.data() as StoreMenuListItem)),
+          snapshot.forEach((doc) => list.push(doc.data() as StoreCardListItem)),
         );
 
       return res.status(200).json(list);
     }
+
     return res.status(200);
   } catch (e: any) {
     return res.status(500).json({ erorr: { message: e.message } });
