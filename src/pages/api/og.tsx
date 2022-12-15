@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import type { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
 
 export const config = {
@@ -13,8 +13,6 @@ const backGroundPng = new URL(
 const font = fetch(
     new URL("../../assets/KosugiMaru-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
-
-type ogp = (req: NextRequest) => Promise<ImageResponse>;
 
 export default async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
@@ -38,11 +36,12 @@ export default async (req: NextRequest) => {
           backgroundImage: `url(${backGroundPng})`,
         }}>
         <option style={{
-            fontFamily: 'KosugiMaru,"Material Icons"',
-        }}>
-        </option> 
+            fontFamily: 'KosugiMaru',
+            
+        }} /> 
         <p style={{
             fontSize: '60px',
+            fontWeight: 'bold',
         }}>
           { title }
         </p>
