@@ -16,11 +16,11 @@ const font = fetch(
 
 export default async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
-    const hasTitle = searchParams.has("title");
-    const title = hasTitle 
+    const HasTitle = searchParams.has("title");
+    const Title = HasTitle 
     ? searchParams.get("title")?.slice(0, 100)
-    : "alibum";
-    const fontData = await font;
+    : "Alibum";
+    const FontData = await font;
   return new ImageResponse(
     (
       <div style={{
@@ -35,15 +35,12 @@ export default async (req: NextRequest) => {
           wordBreak: 'break-all',
           backgroundImage: `url(${backGroundPng})`,
         }}>
-        <option style={{
-            fontFamily: 'KosugiMaru',
-            
-        }} /> 
         <p style={{
+            fontFamily: 'KosugiMaru',
             fontSize: '60px',
             fontWeight: 'bold',
         }}>
-          { title }
+          { Title }
         </p>
       </div>
     ),
@@ -54,7 +51,7 @@ export default async (req: NextRequest) => {
       fonts: [
         {
           name: "KosugiMaru",
-          data: fontData,
+          data: FontData,
           style: "normal",
         },
       ],
