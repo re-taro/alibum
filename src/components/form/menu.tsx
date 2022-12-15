@@ -1,7 +1,7 @@
 import type { UseFormRegister } from "react-hook-form";
 import type { FC, FormEventHandler } from "react";
 import { Input } from "../shared/form/input";
-import type { CreateStoreMenuListItem } from "../../libs/firebase/store";
+import type { CreateStoreMenuListItem } from "../../libs/firebase/types";
 
 type MenuFormProps = {
   register: UseFormRegister<CreateStoreMenuListItem>;

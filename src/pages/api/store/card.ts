@@ -2,7 +2,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
-import type { StoreCardListItem, StoreCardList } from "../../../libs/firebase/types";
+import type {
+  StoreCardListItem,
+  StoreCardList,
+} from "../../../libs/firebase/types";
 
 type Error = {
   message: string;
@@ -19,7 +22,7 @@ export default async (
           projectId: process.env.TYPE,
           privateKey: process.env.PRIVATE_KEY,
           clientEmail: process.env.CLIENT_EMAIL,
-          }),
+        }),
       });
     }
     const db = getFirestore();
