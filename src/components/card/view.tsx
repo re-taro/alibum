@@ -49,7 +49,7 @@ export const ViewTextCard: FC<Omit<ViewCardProps, "imageRef">> = ({
     backgroundColor="white"
     minH="92px"
     w={{ base: "40%", md: "20%" }}
-    _odd={{ bg: "secondary.500" }}
+    _odd={{ bg: "secondary.50" }}
     _even={{ bg: "primary.500" }}
   >
     <CardBody
