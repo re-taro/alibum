@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { Chakra } from "../components/chakra";
+import { auth } from "../libs/firebase/init";
 import defaultSEOConfig from "../../next-seo.config";
 import "../styles/globals.css";
-import { auth } from "../libs/firebase/init";
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
