@@ -10,10 +10,9 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import type { FC } from "react";
-import type {  ModalProps } from "@chakra-ui/react"
+import type { ModalProps } from "@chakra-ui/react";
 import Image from "next/image";
 import { IconButton } from "./shared/button/icon-button";
-
 
 export type ViewModalProps = {
   text: string;
