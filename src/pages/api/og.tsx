@@ -14,12 +14,14 @@ const font = fetch(
     new URL("../../assets/KosugiMaru-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
+type ogp = (req: NextRequest) => Promise<ImageResponse>;
+
 export default async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
     const hasTitle = searchParams.has("title");
     const title = hasTitle 
     ? searchParams.get("title")?.slice(0, 100)
-    : "My default title";
+    : "alibum";
     const fontData = await font;
   return new ImageResponse(
     (
@@ -49,6 +51,7 @@ export default async (req: NextRequest) => {
     {
       width: 1200,
       height: 600,
+      emoji: "twemoji",
       fonts: [
         {
           name: "KosugiMaru",

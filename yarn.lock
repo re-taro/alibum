@@ -4224,7 +4224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/og@npm:^0.0.21":
+"@vercel/og@npm:0.0.21":
   version: 0.0.21
   resolution: "@vercel/og@npm:0.0.21"
   dependencies:
