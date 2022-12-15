@@ -3372,12 +3372,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:13.0.6":
-  version: 13.0.6
-  resolution: "@next/bundle-analyzer@npm:13.0.6"
+"@next/bundle-analyzer@npm:13.0.7":
+  version: 13.0.7
+  resolution: "@next/bundle-analyzer@npm:13.0.7"
   dependencies:
     webpack-bundle-analyzer: 4.7.0
-  checksum: 3c0886277378ac1d342536171642a17b8c8e8c00e0e7aa0c0b9442b565f55b9432adce7ef1980260f8255db47b9840584a467f0bec0e8fc4b85bb4c64d259903
+  checksum: 2f964fd7ee0da6d30a783cb5b1be76d1fbbd01eb7d63e93148e8853b8346b9ba74f619c0a3a78f228a7bf2b3fa30c8fd14182d6541a502ee000faf33ce71c40e
   languageName: node
   linkType: hard
 
@@ -4272,7 +4272,7 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@iconify/react": 4.0.1
-    "@next/bundle-analyzer": 13.0.6
+    "@next/bundle-analyzer": 13.0.7
     "@next/env": 13.0.6
     "@next/font": 13.0.6
     "@types/react": 18.0.26
