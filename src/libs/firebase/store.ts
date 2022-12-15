@@ -86,7 +86,7 @@ export const getCardList = async (
   const list: StoreCardList = [];
   // TODO:pushの計算量的に変えるかもしれない
   const docRef = await getDocs(ref);
-  
+
   docRef.forEach((docs) =>
     list.push({
       text: docs.data().text,
