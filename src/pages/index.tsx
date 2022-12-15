@@ -10,9 +10,9 @@ import { MenuForm } from "../components/form/menu";
 import type {
   CreateStoreMenuListItem,
   StoreMenuList,
-} from "../libs/firebase/store";
+} from "../libs/firebase/types";
 import { useAuthContext } from "../contexts/auth";
-import { getMenuList, createMenuListItem } from "../libs/firebase/store";
+import { createMenuListItem } from "../libs/firebase/store";
 
 const Menu: NextPageWithLayout = () => {
   const [list, setList] = useState<StoreMenuList>([]);
@@ -21,9 +21,9 @@ const Menu: NextPageWithLayout = () => {
   useEffect(() => {
     (async () => {
       if (user) {
-        const res = await getMenuList(user.uid);
-        setList(res);
-        setLoading(false);
+        // const res = await getMenuList(user.uid);
+        // setList(res);
+        // setLoading(false);
       }
     })();
   }, [user]);
