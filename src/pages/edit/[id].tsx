@@ -21,14 +21,8 @@ import {
 import type { StoreCardList } from "../../libs/firebase/store";
 import { EditCard } from "../../components/card/edit";
 import { createGetLayout } from "../../components/layout/edit";
-import type { EditLayoutProps } from "../../components/layout/edit";
 import { IconButton } from "../../components/shared/button/icon-button";
 import { Modal } from "../../components/shared/modal";
-
-const headerData: EditLayoutProps = {
-  name: "KosenTaro",
-  link: "hoge",
-};
 
 const Edit: NextPageWithLayout = () => {
   const { user } = useAuthContext();
@@ -40,6 +34,9 @@ const Edit: NextPageWithLayout = () => {
   const [image, setImage] = useState("");
   const [file, setFile] = useState<File>();
   const listid = id;
+
+  // TODO: fetchData
+  const title = "Title";
 
   const { register, handleSubmit, reset } = useForm<CreateStoreCardListItem>();
 
@@ -87,7 +84,7 @@ const Edit: NextPageWithLayout = () => {
     <Box w="full" as="section">
       <VStack align="stretch" spacing={7}>
         <Text textAlign="center" fontSize={{ sm: "1rem", lg: "1.25rem" }}>
-          Happy Birthday!!!
+          {title}
         </Text>
         <Suspense>
           {list.map((data) => (
@@ -145,14 +142,14 @@ const Edit: NextPageWithLayout = () => {
           rows={10}
         />
 
-        {!image ? null : (
+        {image ? (
           <Image width={128} height={128} src={image} alt={image} />
-        )}
+        ) : null}
       </Modal>
     </Box>
   );
 };
 
-Edit.getLayout = createGetLayout(headerData);
+Edit.getLayout = createGetLayout();
 
 export default Edit;
