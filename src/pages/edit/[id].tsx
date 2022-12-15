@@ -29,6 +29,7 @@ const headerData: EditLayoutProps = {
   name: "KosenTaro",
   link: "hoge",
 };
+
 const Edit: NextPageWithLayout = () => {
   const { user } = useAuthContext();
   const router = useRouter();
@@ -93,7 +94,7 @@ const Edit: NextPageWithLayout = () => {
             <EditCard
               text={data.text}
               imageRef={data.imageRef}
-              key={data.text}
+              key={data.createdAt.toString()}
             />
           ))}
         </Suspense>
@@ -126,7 +127,6 @@ const Edit: NextPageWithLayout = () => {
               {...register("imageFile")}
               type="file"
               accept="image/*"
-              isRequired
               ref={inputRef}
               onChange={onFileInputChange}
               hidden
