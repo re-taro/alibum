@@ -1,7 +1,8 @@
 import type { NextPageWithLayout } from "next";
 import { VStack, Box, useDisclosure } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
+import { useStore } from "@nanostores/react";
 import { MenuCard } from "../components/card/menu";
 import { MenuLayout } from "../components/layout/menu";
 import { IconButton } from "../components/shared/button/icon-button";
@@ -11,21 +12,13 @@ import type {
   CreateStoreMenuListItem,
   StoreMenuList,
 } from "../libs/firebase/types";
-import { useAuthContext } from "../contexts/auth";
 import { createMenuListItem } from "../libs/firebase/store";
+import { userStore } from "../stores/user";
 
 const Menu: NextPageWithLayout = () => {
   const [list, setList] = useState<StoreMenuList>([]);
-  const { user } = useAuthContext();
-  useEffect(() => {
-    (async () => {
-      if (user) {
-        // const res = await getMenuList(user.uid);
-        // setList(res);
-        // setLoading(false);
-      }
-    })();
-  }, [user]);
+  const user = useStore(userStore);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit, reset } = useForm<CreateStoreMenuListItem>({
     defaultValues: {

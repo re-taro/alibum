@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
 import { Flex, Text, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useStore } from "@nanostores/react";
 import { Logo } from "../../components/alibum";
 import { login } from "../../libs/firebase/auth";
-import { useAuthContext } from "../../contexts/auth";
+import { userStore } from "../../stores/user";
 
 const Login: NextPage = () => {
-  const { user } = useAuthContext();
+  const user = useStore(userStore);
   const router = useRouter();
   if (user) {
     router.push("/");
