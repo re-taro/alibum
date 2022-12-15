@@ -3,7 +3,7 @@ import { cert } from "firebase-admin/app";
 import type { ServiceAccount } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import admin from "firebase-admin";
-import type { StoreCardListItem, StoreCardList } from "libs/firebase/types";
+import type { StoreCardListItem, StoreCardList } from "../../../libs/firebase/types";
 import serviceAccount from "../../../../hackU_admin.json";
 
 type Error = {

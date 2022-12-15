@@ -63,7 +63,7 @@ export default async (
       }
 
       const colRef = db
-        .collection("test")
+        .collection("Users")
         .doc(uuid as string)
         .collection("List");
       await colRef
