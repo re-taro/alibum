@@ -1,35 +1,42 @@
-import type { FC, ReactNode, ReactElement } from "react";
+import { FC, ReactNode, ReactElement } from "react";
+import { useRouter } from "next/router";
 import { Box, Flex } from "@chakra-ui/react";
 import { EditHeader } from "./header/edit";
 
-export type EditLayoutProps = Required<{
+type EditLayoutProps = Required<{
   name: string;
-  link: string;
 }>;
 
 interface EditLayoutInterface extends EditLayoutProps {
   children: ReactNode;
 }
 
-const EditLayout: FC<EditLayoutInterface> = ({ children, name, link }) => (
-  <Box minH="100vh" bgColor="background.500">
-    <EditHeader name={name} link={link} />
-    <Flex
-      as="main"
-      flexDir="column"
-      alignItems="center"
-      pt="28"
-      px={{ base: "10", lg: "25%" }}
-      position="static"
-    >
-      {children}
-    </Flex>
-  </Box>
-);
+const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => {
+  const router = useRouter();
+  const { id } = router.query;
+  const listid = id as string;
+  const link = `https://alibum.re-taro.dev/share/${listid}`;
 
-export const createGetLayout = (
-  layoutProps: EditLayoutProps,
-): ((page: ReactElement) => ReactElement) =>
+  return (
+    <Box minH="100vh" bgColor="background.500">
+      <EditHeader name={name} link={link} />
+      <Flex
+        as="main"
+        flexDir="column"
+        alignItems="center"
+        pt="28"
+        px={{ base: "10", lg: "25%" }}
+        position="static"
+      >
+        {children}
+      </Flex>
+    </Box>
+  );
+};
+export const createGetLayout = (): ((page: ReactElement) => ReactElement) =>
   function getLayout(page: ReactElement) {
-    return <EditLayout {...layoutProps}>{page}</EditLayout>;
+    const headerData: EditLayoutProps = {
+      name: "KosenTaro",
+    };
+    return <EditLayout {...headerData}>{page}</EditLayout>;
   };
