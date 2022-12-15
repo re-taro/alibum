@@ -3372,18 +3372,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nanostores/react@npm:0.4.1":
-  version: 0.4.1
-  resolution: "@nanostores/react@npm:0.4.1"
-  dependencies:
-    use-sync-external-store: ^1.2.0
-  peerDependencies:
-    nanostores: ^0.7.0
-    react: ">=18.0.0"
-  checksum: e0dae7e5127bc712383035453483b712851428a888f029ee8f966d9f272e154595a81f98e16f6b276bb1ce6a2eb505dcde01b133f634fbc9238158a14343d187
-  languageName: node
-  linkType: hard
-
 "@next/bundle-analyzer@npm:13.0.6":
   version: 13.0.6
   resolution: "@next/bundle-analyzer@npm:13.0.6"
@@ -3868,32 +3856,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.20.4":
-  version: 4.20.4
-  resolution: "@tanstack/query-core@npm:4.20.4"
-  checksum: bdb652296e4093d8cb042a67b9c035bc0a756e09a3b12aeb070068b07adc1c71174c2e6108f2a8c3322a26cb73ba57f431326aa0b813c81621674b9cc208cd93
-  languageName: node
-  linkType: hard
-
-"@tanstack/react-query@npm:4.20.4":
-  version: 4.20.4
-  resolution: "@tanstack/react-query@npm:4.20.4"
-  dependencies:
-    "@tanstack/query-core": 4.20.4
-    use-sync-external-store: ^1.2.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-native: "*"
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: ba9e2f175c58bde592c0ad14285f289585474763f8d68072d651fa75263a3a7f75eead5b62aa3140db133b95468498bc58817d07513f6f857be2bd8031b491da
-  languageName: node
-  linkType: hard
-
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -4310,11 +4272,9 @@ __metadata:
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@iconify/react": 4.0.1
-    "@nanostores/react": 0.4.1
     "@next/bundle-analyzer": 13.0.6
     "@next/env": 13.0.6
     "@next/font": 13.0.6
-    "@tanstack/react-query": 4.20.4
     "@types/react": 18.0.26
     "@typescript-eslint/eslint-plugin": 5.46.1
     "@typescript-eslint/parser": 5.46.1
@@ -4330,7 +4290,6 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.15.0
     framer-motion: 7.10.0
-    nanostores: 0.7.1
     next: 13.0.6
     next-pwa: 5.6.0
     next-seo: 5.15.0
@@ -7766,13 +7725,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanostores@npm:0.7.1":
-  version: 0.7.1
-  resolution: "nanostores@npm:0.7.1"
-  checksum: 29aeb45893afa97436e65da513bdaa3240747f191c38d982dc7d7a4340063f0a05acc3da388b967d97c9cb52852ac5c7b7b8d80efb7b00a4c3c95bdd233f92e9
-  languageName: node
-  linkType: hard
-
 "napi-build-utils@npm:^1.0.1":
   version: 1.0.2
   resolution: "napi-build-utils@npm:1.0.2"
@@ -9925,15 +9877,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 925d1922f9853e516eaad526b6fed1be38008073067274f0ecc3f56b17bb8ab63480140dd7c271f94150027c996cea4efe83d3e3525e8f3eda22055f6a39220b
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 
