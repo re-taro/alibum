@@ -21,4 +21,3 @@ jobs:
           vercel: ${{ secrets.VERCEL_TOKEN }}
           org: ${{ secrets.ORG_ID }}
           project: ${{ secrets.PROJECT_ID }}
-          
