@@ -12,7 +12,7 @@ import {
   Button,
   Input,
 } from "@chakra-ui/react";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useRouter } from "next/router";
 import { IconButton } from "../../shared/button/icon-button";
 
@@ -24,7 +24,11 @@ type EditHeaderProps = {
 export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { onCopy, value, hasCopied } = useClipboard(link);
+  const { onCopy, value, hasCopied, setValue } = useClipboard(link);
+
+  useEffect(() => {
+    setValue(link);
+  }, [link, setValue]);
 
   const handler = async (path: string): Promise<void> => {
     await router.push(path);
@@ -37,11 +41,17 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
       alignItems="center"
       bgColor="white"
       position="fixed"
+      zIndex={100}
       top={0}
       w="full"
       py="4"
     >
-      <IconButton label="link" size="md" icon="material-symbols:arrow-back" />
+      <IconButton
+        label="back"
+        size="md"
+        icon="material-symbols:arrow-back"
+        onClick={() => handler("/")}
+      />
       <Text
         fontSize="2xl"
         maxWidth="60vw"
@@ -71,7 +81,12 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
             />
           </ModalHeader>
           <ModalBody>
-            <Input rounded="md" bgColor="gray.500" value={value} />
+            <Input
+              rounded="md"
+              bgColor="gray.500"
+              value={link}
+              onChange={(e) => setValue(e.target.value)}
+            />
           </ModalBody>
           <ModalFooter justifyContent="space-around">
             <Button

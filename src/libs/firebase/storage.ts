@@ -2,7 +2,7 @@ import type { StorageReference, UploadMetadata } from "firebase/storage";
 import { ref, uploadBytes } from "firebase/storage";
 import { storage } from "./init";
 
-export const createStoregeRef = (
+export const createStorageRef = (
   fileName: string,
   uuid: string,
 ): StorageReference =>
@@ -16,7 +16,7 @@ export const uploadImage = (
     cacheControl: "public,max-age=300",
   };
   return uploadBytes(
-    createStoregeRef(imageFile.name, uuid),
+    createStorageRef(imageFile.name, uuid),
     imageFile,
     meta,
   ).then((snapshot) => snapshot.ref);

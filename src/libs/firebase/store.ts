@@ -2,11 +2,12 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
   query,
   updateDoc,
 } from "firebase/firestore";
-import type { CollectionReference } from "firebase/firestore";
+import type { CollectionReference, DocumentData } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
@@ -90,7 +91,7 @@ export const getCardList = async (
   docRef.forEach((docs) =>
     list.push({
       text: docs.data().text,
-      imageRef: docs.data().date,
+      imageRef: docs.data().imageRef,
       createdAt: docs.data().createdAt.toDate(),
     }),
   );
@@ -98,4 +99,11 @@ export const getCardList = async (
   list.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
 
   return list;
+};
+
+export const getInfo = async (uuid: string, listid: string) => {
+  const ref = doc(db, "Users", uuid, "List", listid);
+  const docRef: DocumentData = await getDoc(ref);
+
+  return docRef.data();
 };
