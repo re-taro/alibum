@@ -69,32 +69,30 @@ const Share: NextPageWithLayout<Props> = ({ uuid, listid, getList, name }) => {
           ],
         }}
       />
-      <Box minH="100vh" w="full" mx="4">
-        <Flex w="full" justify="center" wrap="wrap" gap={2} mt="4">
-          {cardList.flatMap((index, key) =>
-            index.imageRef ? (
-              <ShareImageCard
-                text={index.text}
-                imageRef={index.imageRef}
-                key={key}
-                onClick={() => {
-                  setListIndex(key);
-                  onOpen();
-                }}
-              />
-            ) : (
-              <ShareTextCard
-                text={index.text}
-                key={key}
-                onClick={() => {
-                  setListIndex(key);
-                  onOpen();
-                }}
-              />
-            ),
-          )}
-        </Flex>
-      </Box>
+      <Flex as="section" w="full" justify="center" wrap="wrap" gap={2}>
+        {cardList.flatMap((index, key) =>
+          index.imageRef ? (
+            <ShareImageCard
+              text={index.text}
+              imageRef={index.imageRef}
+              key={key}
+              onClick={() => {
+                setListIndex(key);
+                onOpen();
+              }}
+            />
+          ) : (
+            <ShareTextCard
+              text={index.text}
+              key={key}
+              onClick={() => {
+                setListIndex(key);
+                onOpen();
+              }}
+            />
+          ),
+        )}
+      </Flex>
       <ShareModal
         isOpen={isOpen}
         onClose={onClose}
