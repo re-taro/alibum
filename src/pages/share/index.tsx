@@ -1,15 +1,17 @@
 import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import type { GetServerSideProps, NextPageWithLayout } from "next";
-import type { StoreCardList } from "libs/firebase/types";
+import type { ListInfo, StoreCardList } from "libs/firebase/types";
 import { useEffect, useState } from "react";
-import { getCardList } from "libs/firebase/store";
+import { getCardList, getInfo } from "libs/firebase/store";
 import { ViewImageCard, ViewTextCard } from "components/card/view";
 import { ViewModal } from "components/view-modal";
+import { NextSeo } from "next-seo";
 import { createGetLayout } from "../../components/layout/view";
 
 type ViewPageProps = {
   uuid: string;
   listid: string;
+  name: string;
   getList: StoreCardList;
 };
 
@@ -18,19 +20,25 @@ export const getServerSideProps: GetServerSideProps<ViewPageProps> = async (
 ) => {
   const { to, from } = context.query;
   const cardlist = await getCardList(from as string, to as string);
+  const res: ListInfo = await getInfo(from as string, to as string);
   return {
     props: JSON.parse(
       JSON.stringify({
         uuid: from as string,
         listid: to as string,
+        name: res.name,
         getList: cardlist,
       }),
     ),
   };
 };
 
-// eslint-disable-next-line react/prop-types
-const View: NextPageWithLayout<ViewPageProps> = ({ uuid, listid, getList }) => {
+const View: NextPageWithLayout<ViewPageProps> = ({
+  uuid,
+  listid,
+  getList,
+  name,
+}) => {
   const [cardList, setCardList] = useState<StoreCardList>(getList);
   const [listIndex, setListIndex] = useState<number>(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,6 +53,21 @@ const View: NextPageWithLayout<ViewPageProps> = ({ uuid, listid, getList }) => {
 
   return (
     <>
+      <NextSeo
+        title={name}
+        description={`${name}への感謝のメッセージ`}
+        openGraph={{
+          url: `https://alibum.re-taro.dev/share?from=${uuid}&to=${listid}`,
+          title: `Alibum for ${name}`,
+          description: `${name}へのメッセージ`,
+          images: [
+            {
+              url: `https://alibum.re-taro.dev/api/og?name=${name}`,
+              alt: "alibum",
+            },
+          ],
+        }}
+      />
       <Box minH="100vh" w="full" mx="4">
         <Flex w="full" justify="center" wrap="wrap" gap={2} mt="4">
           {cardList.flatMap((index, key) =>

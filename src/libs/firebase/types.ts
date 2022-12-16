@@ -27,7 +27,7 @@ export type ListInfo = {
   title: string;
   name: string;
   id: string;
-  date: string
+  date: string;
 };
 
 export type StoreCardList = StoreCardListItem[];
