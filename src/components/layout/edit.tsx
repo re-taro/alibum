@@ -1,9 +1,10 @@
-import { FC, ReactNode, ReactElement, useEffect, useState } from "react";
+import type { FC, ReactNode, ReactElement } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Box, Flex } from "@chakra-ui/react";
-import type { ListInfo } from "libs/firebase/types";
 import { onAuthStateChanged } from "firebase/auth";
-import { getInfo } from "libs/firebase/store";
+import type { ListInfo } from "../../libs/firebase/types";
+import { getInfo } from "../../libs/firebase/store";
 import { auth } from "../../libs/firebase/init";
 import { EditHeader } from "./header/edit";
 
