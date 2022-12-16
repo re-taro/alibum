@@ -1,5 +1,9 @@
 import { Box, Flex, useDisclosure } from "@chakra-ui/react";
-import type { GetServerSideProps, NextPageWithLayout } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPageWithLayout,
+} from "next";
 import type { ListInfo, StoreCardList } from "libs/firebase/types";
 import { useEffect, useState } from "react";
 import { ViewImageCard, ViewTextCard } from "components/card/view";
@@ -14,6 +18,8 @@ type ViewPageProps = {
   name: string;
   getList: StoreCardList;
 };
+
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export const getServerSideProps: GetServerSideProps<ViewPageProps> = async (
   context,
@@ -33,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<ViewPageProps> = async (
   };
 };
 
-const View: NextPageWithLayout<ViewPageProps> = ({
+const View: NextPageWithLayout<Props> = ({
   uuid,
   listid,
   getList,
