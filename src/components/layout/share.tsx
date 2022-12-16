@@ -1,15 +1,15 @@
 import { FC, ReactNode, ReactElement, useState, useEffect } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { ViewHeader } from "./header/view";
+import { ShareHeader } from "./header/share";
 import { ListInfo } from "../../libs/firebase/types";
 import { getInfo } from "../../libs/firebase/store";
 
-interface ViewLayoutInterface {
+interface ShareLayoutInterface {
   children: ReactNode;
 }
 
-const ViewLayout: FC<ViewLayoutInterface> = ({ children }) => {
+const ShareLayout: FC<ShareLayoutInterface> = ({ children }) => {
   const [name, setName] = useState<string>("");
   const [date, setDate] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -33,7 +33,7 @@ const ViewLayout: FC<ViewLayoutInterface> = ({ children }) => {
 
   return (
     <Box minH="100vh" bgColor="background.500">
-      <ViewHeader date={date} name={name} title={title} />
+      <ShareHeader date={date} name={name} title={title} />
       <Flex
         as="main"
         flexDir="column"
@@ -50,5 +50,5 @@ const ViewLayout: FC<ViewLayoutInterface> = ({ children }) => {
 
 export const createGetLayout = (): ((page: ReactElement) => ReactElement) =>
   function getLayout(page: ReactElement) {
-    return <ViewLayout>{page}</ViewLayout>;
+    return <ShareLayout>{page}</ShareLayout>;
   };

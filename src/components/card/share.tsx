@@ -4,9 +4,9 @@ import Image from "next/image";
 import React from "react";
 import type { CardProps } from "./types";
 
-export type ViewCardProps = CardProps & { onClick: () => void };
+export type ShareCardProps = CardProps & { onClick: () => void };
 
-export const ViewImageCard: FC<Required<ViewCardProps>> = ({
+export const ShareImageCard: FC<Required<ShareCardProps>> = ({
   text,
   imageRef,
   onClick,
@@ -39,7 +39,7 @@ export const ViewImageCard: FC<Required<ViewCardProps>> = ({
   </Card>
 );
 
-export const ViewTextCard: FC<Omit<ViewCardProps, "imageRef">> = ({
+export const ShareTextCard: FC<Omit<ShareCardProps, "imageRef">> = ({
   text,
   onClick,
 }) => (

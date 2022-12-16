@@ -14,13 +14,13 @@ import type { FC } from "react";
 import type { ModalProps } from "@chakra-ui/react";
 import Image from "next/image";
 
-export type ViewModalProps = {
+export type ShareModalProps = {
   text: string;
   imageRef?: string;
   index: number;
 } & Pick<ModalProps, "isOpen" | "onClose">;
 
-export const ViewModal: FC<ViewModalProps> = ({
+export const ShareModal: FC<ShareModalProps> = ({
   isOpen,
   onClose,
   text,

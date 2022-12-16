@@ -6,13 +6,13 @@ import type {
 } from "next";
 import type { ListInfo, StoreCardList } from "libs/firebase/types";
 import { useEffect, useState } from "react";
-import { ViewImageCard, ViewTextCard } from "components/card/view";
-import { ViewModal } from "components/view-modal";
+import { ShareImageCard, ShareTextCard } from "components/card/share";
+import { ShareModal } from "components/share-modal";
 import { NextSeo } from "next-seo";
 import { getCardList, getInfo } from "../../libs/firebase/store";
-import { createGetLayout } from "../../components/layout/view";
+import { createGetLayout } from "../../components/layout/share";
 
-type ViewPageProps = {
+type SharePageProps = {
   uuid: string;
   listid: string;
   name: string;
@@ -21,7 +21,7 @@ type ViewPageProps = {
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
-export const getServerSideProps: GetServerSideProps<ViewPageProps> = async (
+export const getServerSideProps: GetServerSideProps<SharePageProps> = async (
   context,
 ) => {
   const { to, from } = context.query;
@@ -39,12 +39,7 @@ export const getServerSideProps: GetServerSideProps<ViewPageProps> = async (
   };
 };
 
-const View: NextPageWithLayout<Props> = ({
-  uuid,
-  listid,
-  getList,
-  name,
-}) => {
+const Share: NextPageWithLayout<Props> = ({ uuid, listid, getList, name }) => {
   const [cardList, setCardList] = useState<StoreCardList>(getList);
   const [listIndex, setListIndex] = useState<number>(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -78,7 +73,7 @@ const View: NextPageWithLayout<Props> = ({
         <Flex w="full" justify="center" wrap="wrap" gap={2} mt="4">
           {cardList.flatMap((index, key) =>
             index.imageRef ? (
-              <ViewImageCard
+              <ShareImageCard
                 text={index.text}
                 imageRef={index.imageRef}
                 key={key}
@@ -88,7 +83,7 @@ const View: NextPageWithLayout<Props> = ({
                 }}
               />
             ) : (
-              <ViewTextCard
+              <ShareTextCard
                 text={index.text}
                 key={key}
                 onClick={() => {
@@ -100,7 +95,7 @@ const View: NextPageWithLayout<Props> = ({
           )}
         </Flex>
       </Box>
-      <ViewModal
+      <ShareModal
         isOpen={isOpen}
         onClose={onClose}
         text={cardList[listIndex].text}
@@ -111,6 +106,6 @@ const View: NextPageWithLayout<Props> = ({
   );
 };
 
-View.getLayout = createGetLayout();
+Share.getLayout = createGetLayout();
 
-export default View;
+export default Share;

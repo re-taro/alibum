@@ -2,13 +2,13 @@ import type { FC } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
-type ViewHeaderProps = {
+type ShareHeaderProps = {
   date: string;
   name: string;
   title: string;
 };
 
-export const ViewHeader: FC<ViewHeaderProps> = ({ date, name, title }) => (
+export const ShareHeader: FC<ShareHeaderProps> = ({ date, name, title }) => (
   <Flex
     as="header"
     alignItems="center"
