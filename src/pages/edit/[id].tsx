@@ -10,7 +10,8 @@ import {
 import type { NextPageWithLayout } from "next";
 import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useRef, useEffect, useState, Suspense } from "react";
+import { useRef, useEffect, useState } from "react";
+import type { ChangeEvent } from "react";
 import Image from "next/image";
 import { onAuthStateChanged } from "firebase/auth";
 import type { User } from "firebase/auth";
@@ -49,7 +50,7 @@ const Edit: NextPageWithLayout = () => {
     inputRef.current?.click();
   };
 
-  const onFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onFileInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     const fileObject = e.target.files[0];
     setFile(fileObject);
@@ -90,15 +91,14 @@ const Edit: NextPageWithLayout = () => {
         <Text textAlign="center" fontSize={{ sm: "1rem", lg: "1.25rem" }}>
           {title}
         </Text>
-        <Suspense>
-          {list.map((data) => (
-            <EditCard
-              text={data.text}
-              imageRef={data.imageRef}
-              key={data.createdAt.toString()}
-            />
-          ))}
-        </Suspense>
+
+        {list.map((data) => (
+          <EditCard
+            text={data.text}
+            imageRef={data.imageRef}
+            key={data.createdAt.toString()}
+          />
+        ))}
       </VStack>
       <IconButton
         position="fixed"

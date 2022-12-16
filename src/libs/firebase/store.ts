@@ -6,9 +6,8 @@ import {
   getDocs,
   query,
   updateDoc,
-  CollectionReference,
-  DocumentData,
 } from "firebase/firestore";
+import type { CollectionReference, DocumentData } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
