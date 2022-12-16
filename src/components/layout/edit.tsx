@@ -13,7 +13,6 @@ interface EditLayoutInterface {
 }
 
 const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
-  const [listid, setListid] = useState("0");
   const [link, setLink] = useState("");
   const [name, setName] = useState("");
 
@@ -22,7 +21,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
       if (u) {
         const { id } = router.query;
-        setListid(id as string);
+        const listid = id as string;
         setLink(`https://alibum.re-taro.dev/share?from=${u.uid}&to=${listid}`);
         const res: ListInfo = await getInfo(u.uid, listid);
         if (typeof res !== "undefined") setName(res.name);
