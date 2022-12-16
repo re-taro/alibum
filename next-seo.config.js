@@ -11,7 +11,7 @@ const defaultSEOConfig = {
     description: "日頃の感謝でサプライズをしよう",
     images: [
       {
-        url: "https://alibum.re-taro.dev/api/og?title=Alibum",
+        url: "https://alibum.re-taro.dev/api/og",
         alt: "alibum",
       },
     ],
