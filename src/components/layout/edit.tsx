@@ -22,8 +22,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
       if (u) {
         const { id } = router.query;
-        const i = id as string;
-        setListid(i);
+        setListid(id as string);
         setLink(`https://alibum.re-taro.dev/share?from=${u.uid}&to=${listid}`);
         const res: ListInfo = await getInfo(u.uid, listid);
         if (typeof res !== "undefined") setName(res.name);
@@ -32,7 +31,9 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
     return () => {
       authStateChanged();
     };
-  }, [router, listid]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router]);
+
   return (
     <Box minH="100vh" bgColor="background.500">
       <EditHeader name={name} link={link} />
