@@ -39,7 +39,7 @@ const Edit: NextPageWithLayout = () => {
   const [list, setList] = useState<StoreCardList>([]);
   const [user, setUser] = useState<User | null>(null);
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [file, setFile] = useState<File>();
   const listid = id;
 
@@ -56,7 +56,7 @@ const Edit: NextPageWithLayout = () => {
     if (!e.target.files) return;
     const fileObject = e.target.files[0];
     setFile(fileObject);
-    setImage(window.URL.createObjectURL(fileObject));
+    setImageUrl(window.URL.createObjectURL(fileObject));
   };
 
   const onSubmit: SubmitHandler<CreateStoreCardListItem> = async (result) => {
@@ -141,15 +141,15 @@ const Edit: NextPageWithLayout = () => {
       >
         <Textarea
           {...register("text", { required: true })}
-          placeholder="//感謝を綴ろう"
+          placeholder="感謝を綴ろう"
           border="none"
           focusBorderColor="white"
           maxLength={120}
           rows={10}
         />
 
-        {image ? (
-          <Image width={128} height={128} src={image} alt={image} />
+        {imageUrl ? (
+          <Image width={128} height={128} src={imageUrl} alt="Preview Image" />
         ) : null}
       </Modal>
     </Box>
