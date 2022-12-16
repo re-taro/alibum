@@ -15,10 +15,15 @@ import Image from "next/image";
 import { onAuthStateChanged } from "firebase/auth";
 import type { User } from "firebase/auth";
 import { auth } from "../../libs/firebase/init";
-import { getCardList, createCardListItem } from "../../libs/firebase/store";
+import {
+  getCardList,
+  createCardListItem,
+  getInfo,
+} from "../../libs/firebase/store";
 import type {
   StoreCardList,
   CreateStoreCardListItem,
+  ListInfo,
 } from "../../libs/firebase/types";
 import { EditCard } from "../../components/card/edit";
 import { createGetLayout } from "../../components/layout/edit";
@@ -36,8 +41,7 @@ const Edit: NextPageWithLayout = () => {
   const [file, setFile] = useState<File>();
   const listid = id;
 
-  // TODO: fetchData
-  const title = "Title";
+  const [title, setTitle] = useState("");
 
   const { register, handleSubmit, reset } = useForm<CreateStoreCardListItem>();
 
@@ -53,12 +57,7 @@ const Edit: NextPageWithLayout = () => {
   };
 
   const onSubmit: SubmitHandler<CreateStoreCardListItem> = async (result) => {
-    if (
-      !user ||
-      !(typeof id === "string") ||
-      !file ||
-      !inputRef.current?.value
-    ) {
+    if (!user || !(typeof id === "string")) {
       return;
     }
     const data: CreateStoreCardListItem = {
@@ -75,6 +74,8 @@ const Edit: NextPageWithLayout = () => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
       if (u && typeof listid === "string") {
         const res = await getCardList(u.uid, listid);
+        const info: ListInfo = await getInfo(u.uid, listid);
+        if (typeof info !== "undefined") setTitle(info.title);
         setList(res);
         setUser(u);
       }
