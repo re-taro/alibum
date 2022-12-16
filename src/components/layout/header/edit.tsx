@@ -47,7 +47,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
       py="4"
     >
       <IconButton
-        label="link"
+        label="back"
         size="md"
         icon="material-symbols:arrow-back"
         onClick={() => handler("/")}
