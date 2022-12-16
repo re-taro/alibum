@@ -2,17 +2,20 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
   query,
   updateDoc,
+  CollectionReference,
+  DocumentData,
 } from "firebase/firestore";
-import type { CollectionReference } from "firebase/firestore";
 import { getDownloadURL } from "firebase/storage";
 import { db } from "./init";
 import { uploadImage } from "./storage";
 import type {
   CreateStoreCardListItem,
   CreateStoreMenuListItem,
+  ListInfo,
   StoreCardList,
   StoreCardListItem,
   StoreMenuList,
@@ -98,4 +101,11 @@ export const getCardList = async (
   list.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
 
   return list;
+};
+
+export const getInfo = async (uuid: string, listid: string) => {
+  const ref = doc(db, "Users", uuid, "List", listid);
+  const docRef: DocumentData = await getDoc(ref);
+
+  return docRef.data();
 };

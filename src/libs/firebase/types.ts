@@ -23,4 +23,10 @@ export type CreateStoreCardListItem = {
   imageFile?: File;
 };
 
+export type ListInfo = {
+  title: string;
+  name: string;
+  id: string;
+};
+
 export type StoreCardList = StoreCardListItem[];
