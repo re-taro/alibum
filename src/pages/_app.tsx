@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       if (
         !user &&
         router.asPath.match(
-          /\/((?!api|_next\/static|favicon.ico|view|login).*)/,
+          /\/((?!api|_next\/static|favicon.ico|share|login).*)/,
         )
       ) {
         await router.push("/login");
