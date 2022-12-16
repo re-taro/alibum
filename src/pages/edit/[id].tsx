@@ -41,7 +41,6 @@ const Edit: NextPageWithLayout = () => {
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [file, setFile] = useState<File>();
-  const listid = id;
 
   const { register, handleSubmit, reset } = useForm<CreateStoreCardListItem>({
     defaultValues: { text: "", imageFile: file },
@@ -75,9 +74,9 @@ const Edit: NextPageWithLayout = () => {
 
   useEffect(() => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
-      if (u && typeof listid === "string") {
-        const res = await getCardList(u.uid, listid);
-        const info: ListInfo = await getInfo(u.uid, listid);
+      if (u && (typeof id as string) === "string") {
+        const res = await getCardList(u.uid, id as string);
+        const info: ListInfo = await getInfo(u.uid, id as string);
         if (typeof info !== "undefined") setTitle(info.title);
         setList(res);
         setUser(u);
@@ -86,7 +85,7 @@ const Edit: NextPageWithLayout = () => {
     return () => {
       authStateChanged();
     };
-  }, [listid]);
+  }, [id]);
   return (
     <Box w="full" as="section">
       <VStack align="stretch" spacing={7}>
