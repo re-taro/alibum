@@ -6,6 +6,7 @@ import {
   HStack,
   useDisclosure,
   Input,
+  AspectRatio,
 } from "@chakra-ui/react";
 import type { NextPageWithLayout } from "next";
 import { useRouter } from "next/router";
@@ -148,7 +149,16 @@ const Edit: NextPageWithLayout = () => {
         />
 
         {imageUrl ? (
-          <Image width={128} height={128} src={imageUrl} alt="Preview Image" />
+          <Box w="full">
+            <AspectRatio ratio={16 / 9}>
+              <Image
+                fill
+                style={{ objectFit: "contain" }}
+                src={imageUrl}
+                alt="Preview Image"
+              />
+            </AspectRatio>
+          </Box>
         ) : null}
       </Modal>
     </Box>
