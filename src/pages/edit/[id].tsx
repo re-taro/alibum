@@ -12,25 +12,26 @@ import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRef, useEffect, useState, Suspense } from "react";
 import Image from "next/image";
-import { useAuthContext } from "../../contexts/auth";
-import {
-  getCardList,
-  createCardListItem,
+import { onAuthStateChanged } from "firebase/auth";
+import type { User } from "firebase/auth";
+import { auth } from "../../libs/firebase/init";
+import { getCardList, createCardListItem } from "../../libs/firebase/store";
+import type {
+  StoreCardList,
   CreateStoreCardListItem,
-} from "../../libs/firebase/store";
-import type { StoreCardList } from "../../libs/firebase/store";
+} from "../../libs/firebase/types";
 import { EditCard } from "../../components/card/edit";
 import { createGetLayout } from "../../components/layout/edit";
 import { IconButton } from "../../components/shared/button/icon-button";
 import { Modal } from "../../components/shared/modal";
 
 const Edit: NextPageWithLayout = () => {
-  const { user } = useAuthContext();
   const router = useRouter();
   const { id } = router.query;
   const { isOpen, onClose, onOpen } = useDisclosure();
   const inputRef = useRef<HTMLInputElement>(null);
   const [list, setList] = useState<StoreCardList>([]);
+  const [user, setUser] = useState<User | null>(null);
   const [image, setImage] = useState("");
   const [file, setFile] = useState<File>();
   const listid = id;
@@ -71,15 +72,17 @@ const Edit: NextPageWithLayout = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      if (user) {
-        if (typeof listid === "string") {
-          const res = await getCardList(user.uid, listid);
-          setList(res);
-        }
+    const authStateChanged = onAuthStateChanged(auth, async (u) => {
+      if (u && typeof listid === "string") {
+        const res = await getCardList(u.uid, listid);
+        setList(res);
+        setUser(u);
       }
-    })();
-  }, [user, listid]);
+    });
+    return () => {
+      authStateChanged();
+    };
+  }, [listid]);
   return (
     <Box w="full" as="section">
       <VStack align="stretch" spacing={7}>
