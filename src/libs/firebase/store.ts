@@ -104,6 +104,5 @@ export const getCardList = async (
 export const getInfo = async (uuid: string, listid: string) => {
   const ref = doc(db, "Users", uuid, "List", listid);
   const docRef: DocumentData = await getDoc(ref);
-
   return docRef.data();
 };

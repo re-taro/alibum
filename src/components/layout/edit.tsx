@@ -15,11 +15,10 @@ interface EditLayoutInterface {
 const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
   const [link, setLink] = useState("");
   const [name, setName] = useState("");
-
   const router = useRouter();
   useEffect(() => {
     const authStateChanged = onAuthStateChanged(auth, async (u) => {
-      if (u) {
+      if (u && router.isReady) {
         const { id } = router.query;
         const listid = id as string;
         setLink(`https://alibum.re-taro.dev/share?from=${u.uid}&to=${listid}`);
@@ -41,6 +40,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
         flexDir="column"
         alignItems="center"
         pt="28"
+        pb="16"
         px={{ base: "10", lg: "25%" }}
         position="static"
       >
