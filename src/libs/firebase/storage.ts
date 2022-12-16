@@ -13,7 +13,7 @@ export const uploadImage = (
   uuid: string,
 ): Promise<StorageReference> => {
   const meta: UploadMetadata = {
-    cacheControl: "public,max-age=300",
+    cacheControl: "public,max-age=86400",
   };
   return uploadBytes(
     createStorageRef(imageFile.name, uuid),
