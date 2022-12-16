@@ -39,6 +39,7 @@ const ShareLayout: FC<ShareLayoutInterface> = ({ children }) => {
         flexDir="column"
         alignItems="center"
         pt="28"
+        pb="16"
         px={{ base: "3", lg: "25%" }}
         position="static"
       >
