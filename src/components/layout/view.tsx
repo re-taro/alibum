@@ -1,9 +1,9 @@
 import { FC, ReactNode, ReactElement, useState, useEffect } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { ListInfo } from "libs/firebase/types";
-import { getInfo } from "libs/firebase/store";
 import { ViewHeader } from "./header/view";
+import { ListInfo } from "../../libs/firebase/types";
+import { getInfo } from "../../libs/firebase/store";
 
 interface ViewLayoutInterface {
   children: ReactNode;

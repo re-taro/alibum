@@ -2,10 +2,10 @@ import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import type { GetServerSideProps, NextPageWithLayout } from "next";
 import type { ListInfo, StoreCardList } from "libs/firebase/types";
 import { useEffect, useState } from "react";
-import { getCardList, getInfo } from "libs/firebase/store";
 import { ViewImageCard, ViewTextCard } from "components/card/view";
 import { ViewModal } from "components/view-modal";
 import { NextSeo } from "next-seo";
+import { getCardList, getInfo } from "../../libs/firebase/store";
 import { createGetLayout } from "../../components/layout/view";
 
 type ViewPageProps = {
