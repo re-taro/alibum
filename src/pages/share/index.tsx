@@ -6,13 +6,6 @@ import { getCardList } from "libs/firebase/store";
 import { ViewImageCard, ViewTextCard } from "components/card/view";
 import { ViewModal } from "components/view-modal";
 import { createGetLayout } from "../../components/layout/view";
-import type { ViewLayoutProps } from "../../components/layout/view";
-
-const data: ViewLayoutProps = {
-  title: "This is Test!!!!!!!",
-  name: "kosen Taro",
-  date: "4/25",
-};
 
 type ViewPageProps = {
   uuid: string;
@@ -89,6 +82,6 @@ const View: NextPageWithLayout<ViewPageProps> = ({ uuid, listid, getList }) => {
   );
 };
 
-View.getLayout = createGetLayout(data);
+View.getLayout = createGetLayout();
 
 export default View;
