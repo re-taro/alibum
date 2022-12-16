@@ -1,27 +1,33 @@
 import { FC, ReactNode, ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Box, Flex } from "@chakra-ui/react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../libs/firebase/init";
 import { EditHeader } from "./header/edit";
 
-type EditLayoutProps = Required<{
-  name: string;
-}>;
-
-interface EditLayoutInterface extends EditLayoutProps {
+interface EditLayoutInterface {
   children: ReactNode;
 }
 
 const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
   const [listid, setListid] = useState("");
-  const user = useRouter();
-  useEffect(() => {
-    const { id } = user.query;
-    const i = id as string;
-    setListid(i);
-  }, [user]);
-  const name = listid;
-  const link = `https://alibum.re-taro.dev/share/${listid}`;
+  const [link, setLink] = useState("");
+  const [name, setName] = useState("");
 
+  const router = useRouter();
+  useEffect(() => {
+    const authStateChanged = onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        const { id } = router.query;
+        const i = id as string;
+        setListid(i);
+        setLink(`https://alibum.re-taro.dev/view?from=${u.uid}&to=${listid}`);
+      }
+    });
+    return () => {
+      authStateChanged();
+    };
+  }, [router, listid]);
   return (
     <Box minH="100vh" bgColor="background.500">
       <EditHeader name={name} link={link} />
@@ -40,8 +46,5 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
 };
 export const createGetLayout = (): ((page: ReactElement) => ReactElement) =>
   function getLayout(page: ReactElement) {
-    const headerData: EditLayoutProps = {
-      name: "KosenTaro",
-    };
-    return <EditLayout {...headerData}>{page}</EditLayout>;
+    return <EditLayout>{page}</EditLayout>;
   };
