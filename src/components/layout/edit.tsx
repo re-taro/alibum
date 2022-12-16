@@ -23,7 +23,7 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
         const { id } = router.query;
         const i = id as string;
         setListid(i);
-        setLink(`https://alibum.re-taro.dev/view?from=${u.uid}&to=${listid}`);
+        setLink(`https://alibum.re-taro.dev/share?from=${u.uid}&to=${listid}`);
         const res: ListInfo = await getInfo(u.uid, listid);
         if (typeof res !== "undefined") setName(res.name);
       }
