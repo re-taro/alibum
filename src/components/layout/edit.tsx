@@ -1,4 +1,4 @@
-import { FC, ReactNode, ReactElement } from "react";
+import { FC, ReactNode, ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Box, Flex } from "@chakra-ui/react";
 import { EditHeader } from "./header/edit";
@@ -11,10 +11,15 @@ interface EditLayoutInterface extends EditLayoutProps {
   children: ReactNode;
 }
 
-const EditLayout: FC<EditLayoutInterface> = ({ children, name }) => {
-  const router = useRouter();
-  const { id } = router.query;
-  const listid = id as string;
+const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
+  const [listid, setListid] = useState("");
+  const user = useRouter();
+  useEffect(() => {
+    const { id } = user.query;
+    const i = id as string;
+    setListid(i);
+  }, [user]);
+  const name = listid;
   const link = `https://alibum.re-taro.dev/share/${listid}`;
 
   return (
