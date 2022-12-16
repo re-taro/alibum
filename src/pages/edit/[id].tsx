@@ -38,13 +38,15 @@ const Edit: NextPageWithLayout = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [list, setList] = useState<StoreCardList>([]);
   const [user, setUser] = useState<User | null>(null);
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [file, setFile] = useState<File>();
   const listid = id;
 
-  const [title, setTitle] = useState("");
-
-  const { register, handleSubmit, reset } = useForm<CreateStoreCardListItem>();
+  const { register, handleSubmit, reset } = useForm<CreateStoreCardListItem>({
+    defaultValues: { text: "", imageFile: file },
+    mode: "onBlur",
+  });
 
   const handleFileClick = () => {
     inputRef.current?.click();
