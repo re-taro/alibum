@@ -28,7 +28,7 @@ export const EditHeader: FC<EditHeaderProps> = ({ name, link }) => {
 
   useEffect(() => {
     setValue(link);
-  });
+  }, [link, setValue]);
 
   const handler = async (path: string): Promise<void> => {
     await router.push(path);
