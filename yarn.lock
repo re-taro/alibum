@@ -3388,6 +3388,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/env@npm:13.0.7":
+  version: 13.0.7
+  resolution: "@next/env@npm:13.0.7"
+  checksum: d2c5914eefa8a5cbda14239c0899aa30f7413901d03758b9ee857ef9f1c6399d79664b9f8a824bbcb2bba9ef6c60c5d2eeac5d795fd2cb8587bc2e8a8a0405e3
+  languageName: node
+  linkType: hard
+
 "@next/eslint-plugin-next@npm:13.0.7":
   version: 13.0.7
   resolution: "@next/eslint-plugin-next@npm:13.0.7"
@@ -4273,7 +4280,7 @@ __metadata:
     "@emotion/styled": 11.10.5
     "@iconify/react": 4.0.1
     "@next/bundle-analyzer": 13.0.7
-    "@next/env": 13.0.6
+    "@next/env": 13.0.7
     "@next/font": 13.0.7
     "@types/react": 18.0.26
     "@typescript-eslint/eslint-plugin": 5.46.1
