@@ -15,7 +15,6 @@ import { uploadImage } from "./storage";
 import type {
   CreateStoreCardListItem,
   CreateStoreMenuListItem,
-  ListInfo,
   StoreCardList,
   StoreCardListItem,
   StoreMenuList,
