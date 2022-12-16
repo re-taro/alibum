@@ -1,7 +1,9 @@
 import { FC, ReactNode, ReactElement, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Box, Flex } from "@chakra-ui/react";
+import type { ListInfo } from "libs/firebase/types";
 import { onAuthStateChanged } from "firebase/auth";
+import { getInfo } from "libs/firebase/store";
 import { auth } from "../../libs/firebase/init";
 import { EditHeader } from "./header/edit";
 
@@ -10,7 +12,7 @@ interface EditLayoutInterface {
 }
 
 const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
-  const [listid, setListid] = useState("");
+  const [listid, setListid] = useState("0");
   const [link, setLink] = useState("");
   const [name, setName] = useState("");
 
@@ -22,6 +24,8 @@ const EditLayout: FC<EditLayoutInterface> = ({ children }) => {
         const i = id as string;
         setListid(i);
         setLink(`https://alibum.re-taro.dev/view?from=${u.uid}&to=${listid}`);
+        const res: ListInfo = await getInfo(u.uid, listid);
+        if (typeof res !== "undefined") setName(res.name);
       }
     });
     return () => {
