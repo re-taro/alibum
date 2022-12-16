@@ -64,7 +64,7 @@ export const ViewModal: FC<ViewModalProps> = ({
 
           {imageRef ? (
             <Box w="full">
-              <AspectRatio ratio={16 / 9}>
+              <AspectRatio ratio={1 / 1}>
                 <Image
                   src={imageRef}
                   alt="Present for you"
