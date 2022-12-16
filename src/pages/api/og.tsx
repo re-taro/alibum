@@ -16,7 +16,7 @@ export default async (req: NextRequest) => {
       import.meta.url,
     ).toString();
     const font = fetch(
-      new URL("../../assets/KosugiMaru-Regular.ttf", import.meta.url),
+      new URL("../../assets/KosugiMaru.woff2", import.meta.url),
     ).then((res) => res.arrayBuffer());
     const fontData = await font;
     const info: OgCardProps = {
