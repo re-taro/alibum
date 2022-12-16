@@ -12,7 +12,7 @@ export default async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
     const name = searchParams.get("name")?.slice(0, 100) ?? "Alibum";
     const backGroundPng = new URL(
-      "../../assets/OGP_.png",
+      "../../assets/back.jpg",
       import.meta.url,
     ).toString();
     const font = fetch(

@@ -1,11 +1,9 @@
-import type { FC } from "react";
-
 export type OgCardProps = {
   name: string;
   backGroundPng: string;
 };
 
-export const OgCard: FC<OgCardProps> = ({ name, backGroundPng }) => (
+export const OgCard = ({ name, backGroundPng }: OgCardProps) => (
   <div
     style={{
       width: "100%",
