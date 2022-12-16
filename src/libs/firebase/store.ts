@@ -90,7 +90,7 @@ export const getCardList = async (
   docRef.forEach((docs) =>
     list.push({
       text: docs.data().text,
-      imageRef: docs.data().date,
+      imageRef: docs.data().imageRef,
       createdAt: docs.data().createdAt.toDate(),
     }),
   );
