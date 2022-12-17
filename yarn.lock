@@ -2237,6 +2237,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/styled-system@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@chakra-ui/styled-system@npm:2.5.0"
+  dependencies:
+    csstype: ^3.0.11
+    lodash.mergewith: 4.6.2
+  checksum: 805e36893c4eb00cfd18cb2242fc680edfca7d01202d6172708c4a4cf70309a8b3d988d12b30f766cc554117c1e2de53a01aef85e563057d91c4876efe4c345a
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/switch@npm:2.0.17":
   version: 2.0.17
   resolution: "@chakra-ui/switch@npm:2.0.17"
@@ -2265,6 +2275,24 @@ __metadata:
     "@emotion/styled": ^11.0.0
     react: ">=18"
   checksum: 5b6c765b1b78724e263c9b7b630879ef54cef5938ba74dbfc0064dea00c55c62855e96513ba147d9b168b019d6a4e81669156a2089745a15c06207043d36bd3c
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/system@npm:2.3.5":
+  version: 2.3.5
+  resolution: "@chakra-ui/system@npm:2.3.5"
+  dependencies:
+    "@chakra-ui/color-mode": 2.1.10
+    "@chakra-ui/react-utils": 2.0.9
+    "@chakra-ui/styled-system": 2.5.0
+    "@chakra-ui/theme-utils": 2.0.6
+    "@chakra-ui/utils": 2.0.12
+    react-fast-compare: 3.2.0
+  peerDependencies:
+    "@emotion/react": ^11.0.0
+    "@emotion/styled": ^11.0.0
+    react: ">=18"
+  checksum: 1606131a861c182628aa92de489ce077f701dc97e15550a8a823d777b7255558fd555ac9b477d07fc22007a63d299dd5b8a56d70e4d70e59edcee46b1269162d
   languageName: node
   linkType: hard
 
@@ -2344,6 +2372,17 @@ __metadata:
     "@chakra-ui/theme": 2.2.2
     lodash.mergewith: 4.6.2
   checksum: 560008e1c0d933dfd99df0f5e6d5be52ef151abb1a25b7fa9083be4f31908853c641e2bc70d838762305236c71a4482acb31d5cddb1938a8cd177e1ce92d954a
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/theme-utils@npm:2.0.6":
+  version: 2.0.6
+  resolution: "@chakra-ui/theme-utils@npm:2.0.6"
+  dependencies:
+    "@chakra-ui/styled-system": 2.5.0
+    "@chakra-ui/theme": 2.2.2
+    lodash.mergewith: 4.6.2
+  checksum: 85f5fc8515165f6167d4c990f81b0aafa26e2681421692c78eb8f56f85a396856a02e77eb4fc1ef7de170e9bce17193b6c2c6220058641b80277c31ee0cad60d
   languageName: node
   linkType: hard
 
@@ -4304,7 +4343,7 @@ __metadata:
     "@chakra-ui/cli": 2.2.1
     "@chakra-ui/icon": 3.0.13
     "@chakra-ui/react": 2.4.3
-    "@chakra-ui/system": 2.3.4
+    "@chakra-ui/system": 2.3.5
     "@emotion/react": 11.10.5
     "@emotion/styled": 11.10.5
     "@iconify/react": 4.0.1
