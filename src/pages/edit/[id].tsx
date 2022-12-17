@@ -71,7 +71,7 @@ const Edit: NextPageWithLayout = () => {
     setList([...list, item]);
     onClose();
     reset();
-    setImageUrl("")
+    setImageUrl("");
   };
 
   useEffect(() => {
