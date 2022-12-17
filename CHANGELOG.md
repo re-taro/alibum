@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/re-taro/alibum/compare/1.0.0...1.0.1) (2022-12-17)
+
+
+### Bug Fixes
+
+* Fix initial color mode ([2767149](https://github.com/re-taro/alibum/commit/27671491fbd63932d957c6afd1419a3242b62103))
+* Reset image url ([69f8315](https://github.com/re-taro/alibum/commit/69f8315d9392aae5a9f6409144a647bdd3cd91df))
+
 ## 1.0.0 (2022-12-16)
 
 
