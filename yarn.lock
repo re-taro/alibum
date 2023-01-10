@@ -4369,7 +4369,7 @@ __metadata:
     next: 13.0.7
     next-pwa: 5.6.0
     next-seo: 5.15.0
-    next-sitemap: 3.1.42
+    next-sitemap: 3.1.45
     prettier: 2.8.1
     react: 18.2.0
     react-dom: 18.2.0
@@ -7902,9 +7902,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-sitemap@npm:3.1.42":
-  version: 3.1.42
-  resolution: "next-sitemap@npm:3.1.42"
+"next-sitemap@npm:3.1.45":
+  version: 3.1.45
+  resolution: "next-sitemap@npm:3.1.45"
   dependencies:
     "@corex/deepmerge": ^4.0.29
     minimist: ^1.2.7
@@ -7914,7 +7914,7 @@ __metadata:
   bin:
     next-sitemap: bin/next-sitemap.mjs
     next-sitemap-cjs: bin/next-sitemap.cjs
-  checksum: 3c0f602f60dc089ca5d198c037aa3e67db0b05cda2ec33ea3827f4206bc158463cb041731c79035d80d0af2f38f170ccf52511a4684587ba44244817d37b0eea
+  checksum: a448df4c784baeb57cd33313246b2d2010d499ff330939a589ba73ea58e7ad891ef15c077e87e21eff0726053a71c8d22bc56271987d77a341505c850944af00
   languageName: node
   linkType: hard
 
