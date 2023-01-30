@@ -4365,7 +4365,7 @@ __metadata:
     eslint-plugin-react: 7.31.11
     eslint-plugin-react-hooks: 4.6.0
     firebase: 9.15.0
-    framer-motion: 7.10.2
+    framer-motion: 8.5.5
     next: 13.0.7
     next-pwa: 5.6.0
     next-seo: 5.15.0
@@ -6246,21 +6246,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:7.10.2":
-  version: 7.10.2
-  resolution: "framer-motion@npm:7.10.2"
+"framer-motion@npm:8.5.5":
+  version: 8.5.5
+  resolution: "framer-motion@npm:8.5.5"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": ^10.15.3
     hey-listen: ^1.0.8
-    tslib: 2.4.0
+    tslib: ^2.4.0
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 75c7843cf83a1213237b4881e06811a01ae5bc9686ff3efdd5494ad23f28cfdf35ad0f6b907110b83f04ddef92412db8d296e28a7297dc83a9b68125311d9f35
+  checksum: 25912b88eaa954d641f0b5f2b811badfb9ca0dbff659cb0dfdae79216ee917b0004d43b9eeb3f74144f4924cf63d8fbd1c93de519eadd8968b6344ed0d5d9d4c
   languageName: node
   linkType: hard
 
@@ -9766,13 +9766,6 @@ __metadata:
     minimist: ^1.2.6
     strip-bom: ^3.0.0
   checksum: 3a1c6c8f614370ee648313d71bbde2a3bcdfb7e99ad068b7791d7b04fac78f120021c96ab4ec285ba78469f13fc08317a987fdf0d90ea03f8d47305e25bd29c6
-  languageName: node
-  linkType: hard
-
-"tslib@npm:2.4.0":
-  version: 2.4.0
-  resolution: "tslib@npm:2.4.0"
-  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
   languageName: node
   linkType: hard
 
